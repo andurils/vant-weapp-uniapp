@@ -1,0 +1,17 @@
+node_modules
+.vscode
+
+# Ignore Mac OS desktop services store
+.DS_Store
+
+# Ignore Windows desktop setting file
+desktop.ini
+
+
+
+*.log
+.idea
+
+images/* 
+
+package-lock.json
