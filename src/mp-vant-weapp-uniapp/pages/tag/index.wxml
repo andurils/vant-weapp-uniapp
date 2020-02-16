@@ -1,0 +1,3 @@
+wrapclass="demo-margin-right" type="danger" size="medium">标签</van-tag>
+  <van-tag type="danger" size="large">标签</van-tag>
+</wrapwrap>

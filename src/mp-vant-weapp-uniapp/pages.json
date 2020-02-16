@@ -1,0 +1,144 @@
+{
+	"pages": [
+		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages  
+		{"path": "pages/dashboard/dashboard"}, 
+		//基础组件
+		{"path": "pages/button/button","style":{"navigationBarTitleText":"Button 按钮","navigationStyle": "default"}}, 
+		{"path": "pages/cell/cell","style":{"navigationBarTitleText":"Cell 单元格","navigationStyle": "default"}},
+		{"path": "pages/icon/icon","style":{"navigationBarTitleText":"icon","navigationStyle": "default"}},
+		{"path": "pages/image/image","style":{"navigationBarTitleText":"image","navigationStyle": "default"}},
+		{"path": "pages/col/col","style":{"navigationBarTitleText":"Layout 布局","navigationStyle": "default"}},
+		{"path": "pages/popup/popup","style":{"navigationBarTitleText":"Popup 弹出层","navigationStyle": "default"}},
+		{"path": "pages/transition/transition","style":{"navigationBarTitleText":"transition 动画","navigationStyle": "default"}},
+		//表单组件
+		{"path": "pages/checkbox/checkbox","style":{"navigationBarTitleText":"checkbox","navigationStyle": "default"}},
+		{"path": "pages/datetime-picker/datetime-picker","style":{"navigationBarTitleText":"DatetimePicker 时间选择","navigationStyle": "default"}},
+		{"path": "pages/field/field","style":{"navigationBarTitleText":"Field 输入框","navigationStyle": "default"}},
+		{"path": "pages/picker/picker","style":{"navigationBarTitleText":"Picker 选择器","navigationStyle": "default"}},
+		{"path": "pages/radio/radio","style":{"navigationBarTitleText":"radio","navigationStyle": "default"}},
+		{"path": "pages/rate/rate","style":{"navigationBarTitleText":"Rate 评分","navigationStyle": "default"}},
+		{"path": "pages/search/search","style":{"navigationBarTitleText":"search","navigationStyle": "default"}},
+		{"path": "pages/slider/slider","style":{"navigationBarTitleText":"slider","navigationStyle": "default"}},
+		{"path": "pages/stepper/stepper","style":{"navigationBarTitleText":"stepper","navigationStyle": "default"}},
+		{"path": "pages/switch/switch","style":{"navigationBarTitleText":"switch","navigationStyle": "default"}},
+		{"path": "pages/uploader/uploader","style":{"navigationBarTitleText":"uploader 文件上传","navigationStyle": "default"}},
+		//反馈组件 
+		{"path": "pages/action-sheet/action-sheet","style":{"navigationBarTitleText":"ActionSheet 上拉菜单","navigationStyle": "default"}},
+		{"path": "pages/dialog/dialog","style":{"navigationBarTitleText":"dialog","navigationStyle": "default"}},
+		{"path": "pages/dropdown/dropdown","style":{"navigationBarTitleText":"DropdownMenu 下拉菜单","navigationStyle": "default"}},
+		{"path": "pages/loading/loading","style":{"navigationBarTitleText":"loading","navigationStyle": "default"}},
+		{"path": "pages/notify/notify","style":{"navigationBarTitleText":"notify","navigationStyle": "default"}},
+		{"path": "pages/overlay/overlay","style":{"navigationBarTitleText":"Overlay 遮罩层","navigationStyle": "default"}},
+		{"path": "pages/swipe-cell/swipe-cell","style":{"navigationBarTitleText":"SwipeCell 滑动单元格","navigationStyle": "default"}}, 
+		{"path": "pages/toast/toast","style":{"navigationBarTitleText":"toast","navigationStyle": "default"}}, 
+		//展示组件
+		{"path": "pages/circle/circle","style":{"navigationBarTitleText":"Circle 环形进度条","navigationStyle": "default"}}, 
+		{"path": "pages/collapse/collapse","style":{"navigationBarTitleText":"collapse折叠面板","navigationStyle": "default"}}, 
+		{"path": "pages/count-down/count-down","style":{"navigationBarTitleText":"CountDown 倒计时","navigationStyle": "default"}}, 
+		{"path": "pages/divider/divider","style":{"navigationBarTitleText":"Divider 分割线","navigationStyle": "default"}}, 
+		{"path": "pages/notice-bar/notice-bar","style":{"navigationBarTitleText":"NoticeBar 通告栏","navigationStyle": "default"}}, 
+		{"path": "pages/panel/panel","style":{"navigationBarTitleText":"Panel 面板","navigationStyle": "default"}},
+		{"path": "pages/progress/progress","style":{"navigationBarTitleText":"Progress 进度条","navigationStyle": "default"}}, 
+		{"path": "pages/skeleton/skeleton","style":{"navigationBarTitleText":"Skeleton 骨架屏","navigationStyle": "default"}},
+		{"path": "pages/steps/steps","style":{"navigationBarTitleText":"Steps 步骤条","navigationStyle": "default"}},
+		{"path": "pages/sticky/sticky","style":{"navigationBarTitleText":"Sticky 粘性布局","navigationStyle": "default"}},
+		{"path": "pages/tag/tag","style":{"navigationBarTitleText":"Tag 标签","navigationStyle": "default"}},
+		{"path": "pages/tree-select/tree-select","style":{"navigationBarTitleText":"TreeSelect 分类选择","navigationStyle": "default"}}, 
+		//导航组件
+		{"path": "pages/grid/grid","style":{"navigationBarTitleText":"Grid 宫格","navigationStyle": "default"}}, 
+		{"path": "pages/indexbar/indexbar","style":{"navigationBarTitleText":"IndexBar 索引栏","navigationStyle": "default"}}, 
+		{"path": "pages/sidebar/sidebar","style":{"navigationBarTitleText":"Sidebar 侧边导航","navigationStyle": "default"}}, 
+		{"path": "pages/navbar/navbar","style":{"navigationBarTitleText":"NavBar 导航栏","navigationStyle": "default"}}, 
+		{"path": "pages/tab/tab","style":{"navigationBarTitleText":"Tab 标签页","navigationStyle": "default"}}, 
+		{"path": "pages/tabbar/tabbar","style":{"navigationBarTitleText":"Tabbar 标签栏","navigationStyle": "default"}}, 
+		//业务组件
+		{"path": "pages/area/area","style":{"navigationBarTitleText":"Area 省市区选择","navigationStyle": "default"}},
+		{"path": "pages/card/card","style":{"navigationBarTitleText":"Card 商品卡片","navigationStyle": "default"}}, 
+		{"path": "pages/submit-bar/submit-bar","style":{"navigationBarTitleText":"SubmitBar 提交订单栏","navigationStyle": "default"}}, 
+		{"path": "pages/goods-action/goods-action","style":{"navigationBarTitleText":"GoodsAction 商品导航","navigationStyle": "default"}}
+    ],
+	"globalStyle": {
+		"mp-alipay": {
+			/* 支付宝小程序特有相关 */
+			"transparentTitle": "always",
+			"allowsBounceVertical": "NO"
+		},
+		"navigationStyle": "custom", //导航栏样式，仅支持 default/custom  custom即取消默认的原生导航栏
+		"navigationBarBackgroundColor": "#0081ff",
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "vant ui",  
+		"usingComponents": { //这里为方便，全局引入了所有组件，也可以在某个page下单独引用某个组件 
+			"van-action-sheet": "/wxcomponents/vant/action-sheet/index",
+			"van-area": "/wxcomponents/vant/area/index", 
+			"van-button": "/wxcomponents/vant/button/index",
+			"van-card": "/wxcomponents/vant/card/index",
+			"van-cell": "/wxcomponents/vant/cell/index",
+			"van-cell-group": "/wxcomponents/vant/cell-group/index",
+			"van-checkbox": "/wxcomponents/vant/checkbox/index",
+			"van-checkbox-group": "/wxcomponents/vant/checkbox-group/index",
+			"van-col": "/wxcomponents/vant/col/index",
+			"van-dialog": "/wxcomponents/vant/dialog/index",
+			"van-field": "/wxcomponents/vant/field/index",
+			"van-goods-action": "/wxcomponents/vant/goods-action/index",
+			"van-goods-action-icon": "/wxcomponents/vant/goods-action-icon/index",
+			"van-goods-action-button": "/wxcomponents/vant/goods-action-button/index",
+			"van-icon": "/wxcomponents/vant/icon/index",
+			"van-image": "/wxcomponents/vant/image/index",
+			"van-loading": "/wxcomponents/vant/loading/index", 
+			"van-notice-bar": "/wxcomponents/vant/notice-bar/index",
+			"van-notify": "/wxcomponents/vant/notify/index",
+			"van-panel": "/wxcomponents/vant/panel/index",
+			"van-popup": "/wxcomponents/vant/popup/index",
+			"van-progress": "/wxcomponents/vant/progress/index",
+			"van-radio": "/wxcomponents/vant/radio/index",
+			"van-radio-group": "/wxcomponents/vant/radio-group/index",
+			"van-row": "/wxcomponents/vant/row/index",
+			"van-search": "/wxcomponents/vant/search/index",
+			"van-slider": "/wxcomponents/vant/slider/index",
+			"van-stepper": "/wxcomponents/vant/stepper/index",
+			"van-steps": "/wxcomponents/vant/steps/index",
+			"van-submit-bar": "/wxcomponents/vant/submit-bar/index",
+			"van-swipe-cell": "/wxcomponents/vant/swipe-cell/index",
+			"van-switch": "/wxcomponents/vant/switch/index",
+			"van-nav-bar": "/wxcomponents/vant/nav-bar/index",
+			"van-tab": "/wxcomponents/vant/tab/index",
+			"van-tabs": "/wxcomponents/vant/tabs/index",
+			"van-tabbar": "/wxcomponents/vant/tabbar/index",
+			"van-tabbar-item": "/wxcomponents/vant/tabbar-item/index",
+			"van-tag": "/wxcomponents/vant/tag/index",
+			"van-toast": "/wxcomponents/vant/toast/index",
+			"van-transition": "/wxcomponents/vant/transition/index",
+			"van-tree-select": "/wxcomponents/vant/tree-select/index",
+			"van-datetime-picker": "/wxcomponents/vant/datetime-picker/index",
+			"van-rate": "/wxcomponents/vant/rate/index",
+			"van-collapse": "/wxcomponents/vant/collapse/index",
+			"van-collapse-item": "/wxcomponents/vant/collapse-item/index",
+			"van-picker": "/wxcomponents/vant/picker/index",
+			"van-dropdown-menu": "/wxcomponents/vant/dropdown-menu/index",
+			"van-dropdown-item": "/wxcomponents/vant/dropdown-item/index",
+			"van-uploader": "/wxcomponents/vant/uploader/index",
+			"van-overlay": "/wxcomponents/vant/overlay/index",
+			"van-circle": "/wxcomponents/vant/circle/index",
+			"van-count-down": "/wxcomponents/vant/count-down/index",
+			"van-divider": "/wxcomponents/vant/divider/index",
+			"van-grid": "/wxcomponents/vant/grid/index",
+			"van-grid-item": "/wxcomponents/vant/grid-item/index",
+			"van-skeleton": "/wxcomponents/vant/skeleton/index",
+			"van-sticky": "/wxcomponents/vant/sticky/index",
+			"van-index-bar": "/wxcomponents/vant/index-bar/index",
+			"van-index-anchor": "/wxcomponents/vant/index-anchor/index",
+			"van-sidebar": "/wxcomponents/vant/sidebar/index",
+			"van-sidebar-item": "/wxcomponents/vant/sidebar-item/index"
+		}
+	},
+	"usingComponts": true,
+	"condition": {
+		//模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [{
+			"name": "表单", //模式名称
+			"path": "pages/dashboard/dashboard", //启动页面
+			"query": "" //启动参数
+		}]
+	}
+}
