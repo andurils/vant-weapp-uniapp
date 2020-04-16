@@ -1,12 +1,12 @@
 <template>
-	<view> 
-		<wrap title="基础用法" padding>
+	<view class="app">
+		<wrap title="基础用法">
 			<van-row>
 				<van-image width="100" height="100" :src="src" />
 			</van-row>
 		</wrap>
 
-		<wrap title="填充模式" padding>
+		<wrap title="填充模式">
 			<van-row gutter="20">
 				<van-col v-for="(fit, key) in fits" :key="key" custom-class="col" span="8">
 					<van-image :fit="fit" width="100%" height="27vw" :src="src" />
@@ -15,7 +15,7 @@
 			</van-row>
 		</wrap>
 
-		<wrap title="圆形图片" padding>
+		<wrap title="圆形图片">
 			<van-row gutter="20">
 				<van-col v-for="(fit, key) in fits" :key="key" custom-class="col" span="8">
 					<van-image round :fit="fit" width="100%" height="27vw" :src="src" />
@@ -25,7 +25,7 @@
 			</van-row>
 		</wrap>
 
-		<wrap title="加载中提示" padding>
+		<wrap title="加载中提示">
 			<van-row gutter="20">
 				<van-col span="8">
 					<van-image width="100%" height="27vw" />
@@ -41,7 +41,7 @@
 			</van-row>
 		</wrap>
 
-		<wrap title="加载失败提示" padding>
+		<wrap title="加载失败提示">
 			<van-row gutter="20">
 				<van-col span="8">
 					<van-image width="100%" height="27vw" src="x" />

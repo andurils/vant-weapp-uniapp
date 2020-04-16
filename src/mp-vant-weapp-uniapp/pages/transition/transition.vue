@@ -1,5 +1,5 @@
 <template>
-	<div class="app"> 
+	<div class="app">
 		<wrap title="基础用法">
 			<van-cell title="Fade" @click="onClickFade" :is-link="true" />
 			<van-cell title="Fade Up" @click="onClickFadeUp" :is-link="true" />
@@ -13,7 +13,7 @@
 			<van-cell title="Custom" @click="onCustom" :is-link="true" />
 
 			<van-transition :show="show" :name="name" custom-class="block" />
-			<van-transition :show="showCustom" name="custom" duration="{ enter: 300, leave: 1000 }" custom-class="block"
+			<van-transition :show="showCustom" name="" duration="{ enter: 200, leave: 1000 }" custom-class="block"
 			 enter-class="van-enter-class" enter-active-class="van-enter-active-class" leave-active-class="van-leave-active-class"
 			 leave-to-class="van-leave-to-class" @before-enter="onBeforeEnter" @enter="onEnter" @after-enter="onAfterEnter"
 			 @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" />
@@ -21,7 +21,7 @@
 	</div>
 </template>
 
-<script> 
+<script>
 	export default {
 		data() {
 			return {

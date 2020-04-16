@@ -1,6 +1,6 @@
 <template>
-	<view> 
-		<wrap title="基础用法" padding>
+	<view>
+		<wrap title="基础用法">
 			<van-row>
 				<van-col span="8" custom-class="dark">span: 8</van-col>
 				<van-col span="8" custom-class="light">span: 8</van-col>
@@ -17,7 +17,7 @@
 			</van-row>
 		</wrap>
 
-		<wrap title="在列元素之间增加间距" padding>
+		<wrap title="在列元素之间增加间距">
 			<van-row gutter="20">
 				<van-col span="8" custom-class="dark">span: 8</van-col>
 				<van-col span="8" custom-class="light">span: 8</van-col>

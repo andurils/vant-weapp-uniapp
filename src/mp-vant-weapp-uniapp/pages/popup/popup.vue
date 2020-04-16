@@ -1,5 +1,5 @@
 <template>
-	<view class="app"> 
+	<view class="app">
 
 		<wrap title="基础用法">
 			<van-cell title="展示弹出层" is-link @click="showBasic" />
@@ -16,7 +16,7 @@
 
 			<van-popup :show="show.top" position="top" custom-style="height: 20%" @close="hideTop" />
 			<van-popup :show="show.bottom" position="bottom" custom-style="height: 20%" @close="hideBottom" />
-			<van-popup :show="show.left" position="left" custom-style="width: 20%; height: 100%" @close="hideLeft" />
+			<van-popup :show="show.left" position="left" custom-style="width: 40%; height: 100%" @close="hideLeft" />
 			<van-popup :show="show.right" position="right" custom-style="width: 20%; height: 100%" @close="hideRight" />
 		</wrap>
 

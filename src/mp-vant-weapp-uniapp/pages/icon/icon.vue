@@ -1,23 +1,23 @@
 <template>
-	<div class="app"> 
+	<div class="app">
 		<van-tabs :active="active" @change="onSwitch">
 			<van-tab title="用法示例">
 				<wrap title="基础用法">
-					<van-icon name="close" size="32px"/>
-					<van-icon name="https://b.yzcdn.cn/vant/icon-demo-1126.png" size="32px"/>
+					<van-icon name="close" size="32px" />
+					<van-icon name="https://b.yzcdn.cn/vant/icon-demo-1126.png" size="32px" />
 
 				</wrap>
 				<wrap title="提示信息">
-					<van-icon name="chat-o" dot size="32px"/>
-					<van-icon name="chat-o" info="9" size="32px"/>
-					<van-icon name="chat-o" info="99+" size="32px"/>
+					<van-icon name="chat-o" dot size="32px" />
+					<van-icon name="chat-o" info="9" size="32px" />
+					<van-icon name="chat-o" info="99+" size="32px" />
 				</wrap>
 				<wrap title="图标颜色">
-					<van-icon name="chat-o" color="red" size="32px"/>
-					<van-icon name="chat-o" color="green" size="32px"/>
+					<van-icon name="chat-o" color="red" size="32px" />
+					<van-icon name="chat-o" color="green" size="32px" />
 				</wrap>
 				<wrap title="图标大小">
-					<van-icon name="chat-o" size="32px"/>
+					<van-icon name="chat-o" size="32px" />
 					<van-icon name="chat-o" size="50px" />
 				</wrap>
 			</van-tab>
@@ -45,11 +45,11 @@
 </template>
 
 <script>
-	import config from './config';
-
-	const basic = config.basic.map(item => item.css);
-	const outline = config.outline.map(item => item.css);
-	const filled = config.filled.map(item => item.css);
+	// npm i @vant/icons -S
+	import icons from '@/components/@vant/icons/src/config';
+	const basic = icons.basic;
+	const outline = icons.outline;
+	const filled = icons.filled;
 	export default {
 		data() {
 			return {
@@ -62,7 +62,7 @@
 		methods: {
 			onSwitch(event) {
 				this.active = event.detail.index;
-			} 
+			}
 		},
 		components: {},
 	};
