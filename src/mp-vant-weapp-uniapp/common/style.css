@@ -1,9 +1,8 @@
-/* 示例元素间距 */
-.demo-margin-right{
-	margin-right: 30upx; 
-}
+/* 页面整体样式设置 */
+/* .app {} */
 
-.demo-margin-top-sm{
-	margin-top: 20upx;
+
+/* 示例元素间距 */
+.demo-margin-right {
+	margin-right: 30upx;
 }
- 

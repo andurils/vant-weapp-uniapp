@@ -1,7 +1,7 @@
 {
 	"pages": [
 		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages  
-		{"path": "pages/dashboard/dashboard"}, 
+		{"path": "pages/dashboard/dashboard","style":{"navigationBarTitleText":"Vant Weapp","navigationStyle": "default"}}, 
 		//基础组件
 		{"path": "pages/button/button","style":{"navigationBarTitleText":"Button 按钮","navigationStyle": "default"}}, 
 		{"path": "pages/cell/cell","style":{"navigationBarTitleText":"Cell 单元格","navigationStyle": "default"}},
@@ -63,10 +63,12 @@
 			"transparentTitle": "always",
 			"allowsBounceVertical": "NO"
 		},
-		"navigationStyle": "custom", //导航栏样式，仅支持 default/custom  custom即取消默认的原生导航栏
-		"navigationBarBackgroundColor": "#0081ff",
-		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "vant ui",  
+		"navigationStyle": "default", //导航栏样式，仅支持 default/custom  custom即取消默认的原生导航栏  
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "",
+		"navigationBarBackgroundColor": "#F5F5F5",
+		"backgroundColor": "#F5F5F5",
+		
 		"usingComponents": { //这里为方便，全局引入了所有组件，也可以在某个page下单独引用某个组件 
 			"van-action-sheet": "/wxcomponents/vant/action-sheet/index",
 			"van-area": "/wxcomponents/vant/area/index", 

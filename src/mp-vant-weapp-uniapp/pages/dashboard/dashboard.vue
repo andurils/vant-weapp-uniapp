@@ -1,19 +1,35 @@
 <template>
-	<view class="container">
+	<view class="app">
 		<view class="title">
 			<image class="logo" src="https://img.yzcdn.cn/public_files/2017/12/18/fd78cf6bb5d12e2a119d0576bedfd230.png" />
 			<view class="title-text">Vant Weapp</view>
 		</view>
 		<view class="desc">轻量、可靠的小程序 UI 组件库</view>
 
-		<view v-for="(group,index) in list" :key="index">
-			<view class="mobile-nav">
-				<view class="mobile-nav__title">{{ group.groupName }}({{group.list.length}})</view>
-				<van-cell-group>
-					<van-cell v-for="(item,key) in group.list" :key="key" is-link :url="'/pages' + item.path + item.path" :title="item.title" ></van-cell>
-				</van-cell-group>
-			</view>
+
+		<view class="mobile-nav" v-if="activeName=='tab'+index" v-for="(group,index) in list" :key="index">
+			<view class="mobile-nav__title">{{ group.groupName }}({{group.list.length}})</view>
+			<van-cell-group>
+				<van-cell v-for="(item,key) in group.list" :key="key" is-link :url="'/pages' + item.path + item.path" :title="item.title"></van-cell>
+			</van-cell-group>
 		</view>
+		<view class="clear">
+
+		</view>
+
+
+		<!-- tabbar -->
+		<view class="tabbar-wrapper">
+			<van-tabbar :active="activeName" safe-area-inset-bottom="false" @change="onNameChange">
+				<van-tabbar-item name="tab0" icon="apps-o">基础</van-tabbar-item>
+				<van-tabbar-item name="tab1" icon="send-gift-o">表单</van-tabbar-item>
+				<van-tabbar-item name="tab2" icon="passed">反馈</van-tabbar-item>
+				<van-tabbar-item name="tab3" icon="photo-o">展示</van-tabbar-item>
+				<van-tabbar-item name="tab4" icon="cluster-o">导航</van-tabbar-item>
+				<van-tabbar-item name="tab5" icon="points">业务</van-tabbar-item>
+			</van-tabbar>
+		</view>
+		<!-- tabbar -->
 	</view>
 
 </template>
@@ -24,22 +40,24 @@
 	export default {
 		data() {
 			return {
-				list
+				list: list,
+				activeName: "tab0",
 			}
 		},
 		onLoad() {
 			// console.log(list);
 		},
 		methods: {
-
+			onNameChange(event) {
+				this.activeName = event.detail;
+			}
 		}
 	}
 </script>
 
 <style>
-	.container {
-		padding: 80px 15px 0;
-		background-color: #F8F8F8;
+	.app {
+		padding: 18px 15px 0;
 	}
 
 	.title {
@@ -81,5 +99,18 @@
 		font-size: 16px;
 		background-color: #fff;
 		padding: 17px 15px;
+	}
+
+	/* tabbar */
+	.tabbar-wrapper {
+		position: fixed;
+		width: 100%;
+		bottom: 0;
+		z-index: 1024;
+		box-shadow: 0 1upx 6upx rgba(0, 0, 0, 0.1);
+	}
+
+	.clear {
+		min-height: 30upx;
 	}
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="app">
 		<wrap title="按钮类型">
 			<van-button class="demo-margin-right" @click="onClick">默认按钮</van-button>
 			<van-button type="primary" class="demo-margin-right">主要按钮</van-button>
@@ -161,8 +161,4 @@
 </script>
 
 <style>
-	.row {
-		height: 44px;
-		margin-bottom: 15px;
-	}
 </style>

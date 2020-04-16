@@ -1,8 +1,8 @@
 <template>
-	<view> 
+	<view class="app">
 		<wrap title="基础用法">
 			<van-cell-group>
-				<van-cell title="单元格" value="内容" />
+				<van-cell title="单元格" value="内容" required='true' />
 				<van-cell title="单元格" value="内容" label="描述信息" :border="false" />
 			</van-cell-group>
 		</wrap>
@@ -30,7 +30,11 @@
 
 
 		<wrap title="页面跳转">
-			<van-cell is-link title="URL跳转" link-type="navigateTo" url="/pages/dashboard/dashboard" />
+			<van-cell is-link title="navigateTo(default)" link-type="navigateTo" url="/pages/dashboard/dashboard" />
+			<van-cell is-link title="reLaunch" link-type="reLaunch" url="/pages/dashboard/dashboard" />
+			<!-- TODO -->
+			<!-- <van-cell is-link title="switchTab" link-type="switchTab" url="/pages/dashboard/dashboard" />
+			<van-cell is-link title="redirectTo" link-type="redirectTo " url="/pages/dashboard/dashboard" /> -->
 		</wrap>
 
 		<wrap title="分组标题">
@@ -49,12 +53,12 @@
 					<view class="title">单元格</view>
 					<van-tag type="danger">标签</van-tag>
 				</view>
-			</van-cell> 
+			</van-cell>
 			<van-cell title="单元格" :border="false">
 				<van-icon slot="right-icon" name="search" />
 			</van-cell>
 		</wrap>
-		
+
 		<wrap title="垂直居中">
 			<van-cell center title="单元格" value="内容" label="描述信息" />
 		</wrap>
@@ -79,9 +83,4 @@
 </script>
 
 <style>
-	.title {
-		margin-right: 5px;
-		display: inline-block;
-		vertical-align: middle;
-	}
 </style>
