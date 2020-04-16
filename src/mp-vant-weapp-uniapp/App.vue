@@ -40,4 +40,6 @@
 
 
 <style>
+/*项目定义的样式文件*/
+@import "common/style.css";
 </style>

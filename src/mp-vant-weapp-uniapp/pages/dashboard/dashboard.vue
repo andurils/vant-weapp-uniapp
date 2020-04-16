@@ -38,7 +38,8 @@
 
 <style>
 	.container {
-		padding: 45px 15px 0;
+		padding: 80px 15px 0;
+		background-color: #F8F8F8;
 	}
 
 	.title {

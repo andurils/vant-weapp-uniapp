@@ -6,7 +6,9 @@ const FIT_MODE_MAP = {
     none: 'center',
     fill: 'scaleToFill',
     cover: 'aspectFill',
-    contain: 'aspectFit'
+    contain: 'aspectFit',
+    widthFix: 'widthFix',
+    heightFix: 'heightFix'
 };
 VantComponent({
     mixins: [button, openType],
@@ -51,7 +53,8 @@ VantComponent({
     },
     data: {
         error: false,
-        loading: true
+        loading: true,
+        viewStyle: '',
     },
     mounted() {
         this.setMode();
@@ -76,7 +79,7 @@ VantComponent({
                 style += 'overflow: hidden;';
                 style += `border-radius: ${addUnit(radius)};`;
             }
-            this.setData({ style });
+            this.setData({ viewStyle: style });
         },
         onLoad(event) {
             this.setData({

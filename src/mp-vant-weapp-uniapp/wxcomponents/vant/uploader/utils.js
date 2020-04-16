@@ -1,6 +1,6 @@
-const IMAGE_EXT = ['jpeg', 'jpg', 'gif', 'png', 'svg'];
+const IMAGE_EXT = ['jpeg', 'jpg', 'gif', 'png', 'svg', 'webp'];
 export function isImageUrl(url) {
-    return IMAGE_EXT.some(ext => url.indexOf(`.${ext}`) !== -1);
+    return IMAGE_EXT.some(ext => url.indexOf(`.${ext}`) !== -1 || url.indexOf(`.${ext.toLocaleUpperCase()}`) !== -1); // 有些七牛返回来的后缀的大写，加以判断
 }
 export function isImageFile(item) {
     if (item.type) {
@@ -16,4 +16,46 @@ export function isImageFile(item) {
 }
 export function isVideo(res, accept) {
     return accept === 'video';
+}
+export function chooseFile({ accept, multiple, capture, compressed, maxDuration, sizeType, camera, maxCount }) {
+    if (accept === 'image') {
+        return new Promise((resolve, reject) => {
+            wx.chooseImage({
+                count: multiple ? Math.min(maxCount, 9) : 1,
+                sourceType: capture,
+                sizeType,
+                success: resolve,
+                fail: reject
+            });
+        });
+    }
+    if (accept === 'video') {
+        return new Promise((resolve, reject) => {
+            wx.chooseVideo({
+                sourceType: capture,
+                compressed,
+                maxDuration,
+                camera,
+                success: resolve,
+                fail: reject
+            });
+        });
+    }
+    return new Promise((resolve, reject) => {
+        wx.chooseMessageFile({
+            count: multiple ? maxCount : 1,
+            type: 'file',
+            success: resolve,
+            fail: reject
+        });
+    });
+}
+export function isFunction(val) {
+    return typeof val === 'function';
+}
+export function isObject(val) {
+    return val !== null && typeof val === 'object';
+}
+export function isPromise(val) {
+    return isObject(val) && isFunction(val.then) && isFunction(val.catch);
 }

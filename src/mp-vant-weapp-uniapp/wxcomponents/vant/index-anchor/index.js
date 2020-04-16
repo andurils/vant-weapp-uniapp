@@ -3,12 +3,7 @@ VantComponent({
     relation: {
         name: 'index-bar',
         type: 'ancestor',
-        linked(target) {
-            this.parent = target;
-        },
-        unlinked() {
-            this.parent = null;
-        }
+        current: 'index-anchor'
     },
     props: {
         useSlot: Boolean,
@@ -18,5 +13,18 @@ VantComponent({
         active: false,
         wrapperStyle: '',
         anchorStyle: ''
+    },
+    methods: {
+        scrollIntoView(scrollTop) {
+            this.getBoundingClientRect().then((rect) => {
+                wx.pageScrollTo({
+                    duration: 0,
+                    scrollTop: scrollTop + rect.top - this.parent.data.stickyOffsetTop
+                });
+            });
+        },
+        getBoundingClientRect() {
+            return this.getRect('.van-index-anchor-wrapper');
+        }
     }
 });
