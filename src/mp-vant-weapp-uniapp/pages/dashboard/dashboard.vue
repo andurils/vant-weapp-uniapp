@@ -111,6 +111,6 @@
 	}
 
 	.clear {
-		min-height: 30upx;
+		min-height: 100upx;
 	}
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<div class="app"> 
+	<view class="app">
 
 
 		<van-cell center title="基础用法">
@@ -33,7 +33,11 @@
 		<van-cell center title="异步变更">
 			<van-stepper :value="value" async-change @change="onChange" />
 		</van-cell>
-	</div>
+
+		<van-cell center title="自定义大小">
+			<van-stepper value="  1  " input-width="40px" button-size="32px" />
+		</van-cell>
+	</view>
 </template>
 
 <script>

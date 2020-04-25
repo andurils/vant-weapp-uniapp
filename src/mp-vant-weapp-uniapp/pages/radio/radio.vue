@@ -1,7 +1,7 @@
 <template>
-	<div class="app"> 
+	<div class="app">
 		<wrap title="基础用法">
-			<van-radio-group :value="radio1" @change="onChange" data-key="radio1">
+			<van-radio-group :value="radio1" @change="onChange" custom-class="demo-radio-group" data-key="radio1">
 				<van-radio name="1" custom-class="demo-radio">单选框 1</van-radio>
 				<van-radio name="2" custom-class="demo-radio">单选框 2</van-radio>
 			</van-radio-group>
@@ -23,22 +23,22 @@
 
 		<wrap title="自定义颜色">
 			<van-radio-group :value="radio2" data-key="radio2" custom-class="demo-radio-group" @change="onChange">
-				<van-radio name="1" checked-color="#07c160">单选框 1</van-radio>
-				<van-radio name="2" checked-color="#07c160">单选框 2</van-radio>
+				<van-radio name="1" custom-class="demo-radio" checked-color="#07c160">单选框 1</van-radio>
+				<van-radio name="2" custom-class="demo-radio" checked-color="#07c160">单选框 2</van-radio>
 			</van-radio-group>
 		</wrap>
 
 		<wrap title="自定义形状">
-			<van-radio-group :value="radio2" data-key="radio2"  custom-class="demo-radio-group" @change="onChange">
-				<van-radio name="1" shape="square">单选框 1</van-radio>
-				<van-radio name="2" shape="round">单选框 2</van-radio>
+			<van-radio-group :value="radio2" data-key="radio2" custom-class="demo-radio-group" @change="onChange">
+				<van-radio name="1" custom-class="demo-radio" shape="square">单选框 1</van-radio>
+				<van-radio name="2" custom-class="demo-radio" shape="round">单选框 2</van-radio>
 			</van-radio-group>
 		</wrap>
 
 		<wrap title="自定义大小">
 			<van-radio-group :value="radio2" data-key="radio2" custom-class="demo-radio-group" @change="onChange">
-				<van-radio name="1">单选框 1</van-radio>
-				<van-radio name="2" icon-size="25px">单选框 2</van-radio>
+				<van-radio name="1" custom-class="demo-radio">单选框 1</van-radio>
+				<van-radio name="2" custom-class="demo-radio" icon-size="25px">单选框 2</van-radio>
 			</van-radio-group>
 		</wrap>
 

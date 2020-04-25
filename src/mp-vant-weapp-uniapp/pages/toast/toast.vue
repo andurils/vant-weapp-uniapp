@@ -1,5 +1,5 @@
 <template>
-	<div class="app">
+	<view class="app">
 		<wrap title="文字提示">
 			<van-button type="primary" @tap="showToast" class="demo-margin-right">文字提示</van-button>
 			<van-button type="primary" @tap="showLongToast">长文字提示</van-button>
@@ -10,8 +10,8 @@
 		</wrap>
 
 		<wrap title="成功/失败提示">
-			<van-button type="primary" @tap="showSuccessToast" class="demo-margin-right">成功提示</van-button>
-			<van-button type="primary" @tap="showFailToast">失败提示</van-button>
+			<van-button type="info" @tap="showSuccessToast" class="demo-margin-right">成功提示</van-button>
+			<van-button type="danger" @tap="showFailToast">失败提示</van-button>
 		</wrap>
 
 		<wrap title="动态更新提示">
@@ -20,7 +20,7 @@
 
 		<van-toast id="van-toast" />
 		<van-toast id="custom-selector" />
-	</div>
+	</view>
 </template>
 <script>
 	import Page from '../../common/page'; 

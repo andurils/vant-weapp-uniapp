@@ -1,5 +1,5 @@
 <template>
-	<div class="app"> 
+	<div class="app">
 		<wrap title="基本用法">
 			<van-cell-group>
 				<van-field :value="value" placeholder="请输入用户名" :border="false" left-icon="contact" :clearable="true" @input="change" />
@@ -7,7 +7,7 @@
 		</wrap>
 		<wrap title="自定义类型">
 			<van-cell-group>
-				<van-field @clickIcon="onClickIcon" :value="username" label="用户名" placeholder="请输入用户名" icon="question" icon-class="icon" />
+				<van-field @clickIcon="onClickIcon" :value="username" label="文本" placeholder="请输入文本" icon="question-o" icon-class="demo-icon" />
 
 
 				<van-field :value="numberValue" type="number" label="整数" placeholder="请输入整数" />
@@ -36,7 +36,8 @@
 
 		<wrap title="插入按钮">
 			<van-field :value="sms" center clearable label="短信验证码" placeholder="请输入短信验证码" :use-button-slot="true" :border="false">
-				<van-button slot="button" size="small" type="primary" custom-class="button" @click="send">发送验证码</van-button>
+				<van-button slot="button" size="small" type="info" :disabled="btnSmsSendState" :loading="btnSmsSendState"
+				 custom-class="button" @click="send" loading-type="spinner" :loading-text="btnSMSTxt">{{btnSMSTxt}}</van-button>
 			</van-field>
 		</wrap>
 
@@ -61,6 +62,8 @@
 				phone: '',
 				message: '',
 				sms: '',
+				btnSMSTxt: "发送验证码",
+				btnSmsSendState: false
 			};
 		},
 		methods: {
@@ -76,13 +79,29 @@
 				});
 			},
 			send() {
-				uni.showToast({
-					title: '失败提示',
-					icon: 'none'
-				});
+				var _vm = this;
+
+				const text = second => `${second} s`;
+				let second = 10;
+				const timer = setInterval(() => {
+					_vm.btnSmsSendState = true;
+					second--;
+					if (second) {
+						_vm.btnSMSTxt = text(second);
+					} else {
+						_vm.btnSMSTxt = "发送验证码";
+						_vm.btnSmsSendState = false;
+						clearInterval(timer);
+						_vm.$toast.clear();
+					}
+				}, 1000);
 			},
 		},
 	};
 </script>
 
-<style></style>
+<style>
+	.demo-icon {
+		color: #007AFF;
+	}
+</style>

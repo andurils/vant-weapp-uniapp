@@ -1,5 +1,8 @@
 /* 页面整体样式设置 */
-/* .app {} */
+.app {
+	background-color: #F8F8F8;
+	min-height: 100vh;
+}
 
 
 /* 示例元素间距 */

@@ -1,5 +1,5 @@
 <template>
-	<view> 
+	<view class="app">
 		<wrap title="基本用法">
 			<van-checkbox :value="checkbox1" data-key="checkbox1" custom-class="demo-checkbox" @change="onChange">
 				复选框

@@ -1,41 +1,32 @@
 <template>
-	<div class="app"> 
-
-		<view class="">
-			基础用法
-		</view>
+	<view class="app">
+		<wrap title="基础用法">
+		</wrap>
 		<van-search :value="value" placeholder="请输入搜索关键词" @change="onChange" />
 
-		<view class="">
-			监听对应事件
-		</view>
+		<wrap title="监听对应事件">
+		</wrap>
 		<van-search :value="value" show-action placeholder="请输入搜索关键词" @change="onChange" @search="onSearch" @cancel="onCancel"
 		 @clear="onClear" />
 
-
-		<view class="">
-			搜索框内容对齐
-		</view>
+		<wrap title="搜索框内容对齐">
+		</wrap>
 		<van-search :value="value" placeholder="请输入搜索关键词" input-align="center" />
 
-		<view class="">
-			禁用搜索框
-		</view>
+		<wrap title="禁用搜索框">
+		</wrap>
 		<van-search :value="value" placeholder="请输入搜索关键词" disabled />
 
+		<wrap title="自定义背景色">
+		</wrap>
+		<van-search :value="value" placeholder="请输入搜索关键词" shape="round" background="#4fc08d" />
 
-		<view class="">
-			自定义背景色
-		</view>
-		<van-search :value="value" placeholder="请输入搜索关键词" shape="round" background="#c8c9cc" />
-
-		<view class="">
-			自定义行动按钮
-		</view>
+		<wrap title="自定义行动按钮">
+		</wrap>
 		<van-search :value="value" placeholder="请输入搜索关键词" label="地址" :use-action-slot="true" @change="onChange" @search="onSearch">
 			<view slot="action" @tap="onSearch">搜索</view>
 		</van-search>
-	</div>
+	</view>
 </template>
 
 <script>

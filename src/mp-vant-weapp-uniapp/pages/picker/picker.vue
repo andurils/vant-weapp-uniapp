@@ -1,5 +1,5 @@
 <template>
-	<view> 
+	<view class="app">
 
 		<wrap title="基础用法">
 			<van-picker :columns="column1" @change="onChange1" />
@@ -19,10 +19,6 @@
 
 		<wrap title="多列联动">
 			<van-picker :columns="column4" @change="onChange2" />
-		</wrap>
-
-		<wrap title="级联选择">
-			//TODO
 		</wrap>
 
 		<wrap title="加载状态">

@@ -1,5 +1,5 @@
 <template>
-	<div class="app">
+	<view class="app">
 
 		<wrap title="基础用法">
 		</wrap>
@@ -44,7 +44,7 @@
 
 		<van-dialog id="van-dialog" />
 		<van-notify id="van-notify" />
-	</div>
+	</view>
 </template>
 <script>
 	import Page from '../../common/page';

@@ -1,7 +1,5 @@
 <template>
-	<view>
- 
-
+	<view class="app">
 		<wrap title="基础用法">
 		</wrap>
 		<van-dropdown-menu>
@@ -11,7 +9,7 @@
 
 		<wrap title="自定义菜单内容">
 		</wrap>
-		<van-dropdown-menu>
+		<van-dropdown-menu z-index="20">
 			<van-dropdown-item :value="value1" :options="option1" />
 			<van-dropdown-item id="item" :title="itemTitle">
 				<van-cell :title="switchTitle1">
@@ -28,14 +26,14 @@
 
 		<wrap title="自定义选中状态颜色">
 		</wrap>
-		<van-dropdown-menu active-color="#ee0a24">
+		<van-dropdown-menu active-color="#ee0a24" z-index="20">
 			<van-dropdown-item :value="value1" :options="option1" />
 			<van-dropdown-item :value="value2" :options="option2" />
 		</van-dropdown-menu>
 
 		<wrap title="向上展开">
 		</wrap>
-		<van-dropdown-menu direction="up">
+		<van-dropdown-menu direction="up" z-index="20">
 			<van-dropdown-item :value="value1" :options="option1" />
 			<van-dropdown-item :value="value2" :options="option2" />
 		</van-dropdown-menu>
@@ -95,7 +93,7 @@
 		onLoad() {},
 		methods: {
 			onConfirm() {
-				this.selectComponent('#item').toggle();
+				this.selectComponent('#item').toggle(false);
 			},
 
 			onSwitch1Change(event) {

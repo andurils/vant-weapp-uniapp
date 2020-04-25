@@ -1,23 +1,32 @@
 <template>
-	<view>  
+	<view class="app">
 		<wrap title="选择完整时间">
 			<van-datetime-picker type="datetime" data-type="datetime" :loading="loading" :value="currentDate1" :min-date="minDate"
-			 @input="onInput" @confirm="onConfirm" @cancel="onCancel" @change="onChange"/>
+			 @input="onInput" @confirm="onConfirm" @cancel="onCancel" @change="onChange" />
 		</wrap>
 
 		<wrap title="选择日期（年月日）">
-			<van-datetime-picker type="date" data-type="date" :value="currentDate2" :min-date="minDate" @input="onInput" @confirm="onConfirm" @cancel="onCancel" />
+			<van-datetime-picker type="date" data-type="date" :value="currentDate2" :min-date="minDate" @input="onInput"
+			 @confirm="onConfirm" @cancel="onCancel" :formatter="formatter" />
 		</wrap>
 
 		<wrap title="选择日期（年月）">
-			<van-datetime-picker type="year-month" data-type="year-month" :value="currentDate3" :min-date="minDate" @input="onInput" @confirm="onConfirm" @cancel="onCancel" />
+			<van-datetime-picker type="year-month" data-type="year-month" :value="currentDate3" :min-date="minDate" @input="onInput"
+			 @confirm="onConfirm" @cancel="onCancel" />
 		</wrap>
 
 		<wrap title="选择时间">
 			<van-datetime-picker type="time" data-type="time" :value="currentDate4" :min-hour="minHour" :max-hour="maxHour"
-			 @input="onInput"  @confirm="onConfirm" @cancel="onCancel"/>
+			 @input="onInput" @confirm="onConfirm" @cancel="onCancel" />
 		</wrap>
 
+		<wrap title="选择过滤器">
+			<van-datetime-picker type="time" data-type="time" :value="currentDate4" :filter="filter" @input="onInput" @confirm="onConfirm"
+			 @cancel="onCancel" />
+		</wrap>
+
+		<van-toast id="van-toast" />
+		<van-dialog id="van-dialog" />
 	</view>
 
 </template>
@@ -35,36 +44,51 @@
 				currentDate2: null,
 				currentDate3: new Date(2018, 0, 1),
 				currentDate4: '12:00',
-				loading: false
+				loading: false,
+				formatter(type, value) {
+					if (type === 'year') {
+						return `${value}年`;
+					}
+					if (type === 'month') {
+						return `${value}月`;
+					}
+					return value;
+				},
+				filter(type, options) {
+					if (type === 'minute') {
+						return options.filter(option => option % 5 === 0);
+					}
+
+					return options;
+				}
 			};
 		},
 		methods: {
 			onInput(event) {
-				console.log(event);
-
 				const {
 					detail,
 					currentTarget
 				} = event;
 				const result = this.getResult(detail, currentTarget.dataset.type);
 
-				console.log(result);
+				// console.log(result);
+				this.$toast(result)
 			},
-			onChange(event){
-				console.log(event); 
-				
+			onChange(event) {
+				console.log(event);
+
 			},
 			onConfirm() {
 				uni.showToast({
 					title: 'ok !!',
 					icon: 'none'
-				});  
+				});
 			},
 			onCancel() {
 				uni.showToast({
 					title: 'cancel !!',
 					icon: 'none'
-				});  
+				});
 			},
 
 			getResult(time, type) {

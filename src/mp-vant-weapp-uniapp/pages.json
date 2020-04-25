@@ -68,8 +68,8 @@
 		"navigationStyle": "default", //导航栏样式，仅支持 default/custom  custom即取消默认的原生导航栏  
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "",
-		"navigationBarBackgroundColor": "#F5F5F5",
-		"backgroundColor": "#F5F5F5",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
 		
 		"usingComponents": { //这里为方便，全局引入了所有组件，也可以在某个page下单独引用某个组件 
 			"van-action-sheet": "/wxcomponents/vant/action-sheet/index",
