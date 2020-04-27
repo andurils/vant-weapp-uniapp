@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="app">
 		<wrap title="基础用法">
 			<van-count-down :time="time" />
 		</wrap>

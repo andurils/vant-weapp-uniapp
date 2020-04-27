@@ -36,11 +36,16 @@
 				container: null
 			}
 		},
-		onLoad() {
-			this.container = wthis.selectComponent('#container');
+		onReady() {
+			this.container = this.selectorQuery;
+			console.log(this.container);
 		},
 		computed: {},
-		methods: {}
+		methods: {
+			selectorQuery() {
+				return uni.createSelectorQuery().select('#container')
+			}
+		}
 	}
 </script>
 

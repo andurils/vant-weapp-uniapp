@@ -1,9 +1,9 @@
 <template>
-	<view class="">
+	<view class="app">
 		<wrap title="基础用法">
 			<van-sidebar custom-class="custom-sidebar" :active-key="activeKey" @change="onChange">
 				<van-sidebar-item title="标签名称" />
-				<van-sidebar-item title="标签名称" disable />
+				<van-sidebar-item title="标签名称" disabled />
 				<van-sidebar-item title="标签名称" />
 			</van-sidebar>
 		</wrap>
@@ -14,7 +14,7 @@
 				<van-sidebar-item title="标签名称" info="5" />
 				<van-sidebar-item title="标签名称" info="99+" />
 			</van-sidebar>
-		</wrap> 
+		</wrap>
 	</view>
 </template>
 

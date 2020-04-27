@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="app">
 		<wrap title="基础用法">
 		</wrap>
 		<van-tabs :active="1" @change="onChange">

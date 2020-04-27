@@ -1,5 +1,5 @@
 <template>
-	<view class="">
+	<view class="app">
 		<wrap title="基本用法">
 			<van-grid>
 				<van-grid-item icon="photo-o" :text="'文字'+(item+1)" v-for="(item,index) in 4" :key="index" />

@@ -1,5 +1,5 @@
 <template>
-	<div class="app">
+	<view class="app">
 		<wrap title="基础用法">
 			<van-collapse :value="active1" data-key="active1" @change="onChange">
 				<van-collapse-item :title="title1" content-class="van-collapse-item__content">{{ content1 }}</van-collapse-item>
@@ -21,7 +21,7 @@
 			<van-collapse :value="active3" data-key="active3" @change="onChange">
 				<van-collapse-item content-class="van-collapse-item__content">
 					<view slot="title">{{ title1 }}
-						<van-icon name="question" custom-class="van-icon-question" />
+						<van-icon name="question-o" custom-class="van-icon-question" />
 					</view>
 					{{ content1 }}
 				</van-collapse-item>
@@ -29,7 +29,7 @@
 			</van-collapse>
 		</wrap>
 		<van-toast id="van-toast" />
-	</div>
+	</view>
 </template>
 
 <script>

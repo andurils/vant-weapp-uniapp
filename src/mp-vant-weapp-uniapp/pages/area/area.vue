@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="app">
 		<wrap title="基础用法">
 			<van-area :value="value" :loading="loading" :area-list="areaList" @change="onChange" @confirm="onConfirm" @cancel="onCancel" />
 		</wrap>

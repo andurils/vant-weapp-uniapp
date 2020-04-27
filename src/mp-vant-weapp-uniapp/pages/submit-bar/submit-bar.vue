@@ -1,5 +1,5 @@
 <template>
-	<div class="submit-wapper">
+	<div class="app submit-wapper">
 		<wrap title="基础用法">
 		</wrap>
 		<van-submit-bar custom-class="root-class" :price="3050" button-text="提交订单" @submit="onSubmit" />

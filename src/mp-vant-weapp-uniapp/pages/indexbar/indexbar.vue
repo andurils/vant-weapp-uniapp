@@ -1,5 +1,5 @@
 <template>
-	<view class="">
+	<view class="app">
 		<van-tabs :active="activeTab" @change="onChange">
 			<van-tab title="基础用法">
 				<van-index-bar v-if="activeTab === 0" :scroll-top="scrollTop">

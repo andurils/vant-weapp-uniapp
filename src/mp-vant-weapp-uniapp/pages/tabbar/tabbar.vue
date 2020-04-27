@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="app">
 		<wrap title="基础用法">
 		</wrap>
 		<van-tabbar :active="active" custom-class="tabbar" safe-area-inset-bottom="false" @change="onChange">

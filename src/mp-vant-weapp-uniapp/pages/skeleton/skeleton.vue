@@ -1,5 +1,5 @@
 <template>
-	<view class="app">
+	<view class="">
 		<wrap title="基础用法">
 			<van-skeleton title row="3" row-width="['100%', '100%', '80%']" />
 		</wrap>
@@ -10,7 +10,7 @@
 
 		<wrap title="展示子组件">
 			<van-switch :checked="show" size="24px" @change="onChange" />
-			<van-skeleton title avatar row="3" :loading="show">
+			<van-skeleton title avatar avatar-shape="square" row="3" :loading="show">
 				<view class="demo-preview">
 					<image class="demo-preview-img" src="https://img.yzcdn.cn/vant/logo.png" />
 					<view class="demo-content">
@@ -30,7 +30,7 @@
 	export default {
 		data() {
 			return {
-				show: false
+				show: true
 			}
 		},
 		computed: {},
