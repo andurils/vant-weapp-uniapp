@@ -2,11 +2,11 @@ import Vue from 'vue'
 import App from './App'
 
 // VANT 全局组件
-import '@/utils/vantRegister';
+// import '@/utils/vantRegister';
  
 // 自定义组件  用于demo展示
-import wrap from '@/components/wrap'; 
-Vue.component('wrap', wrap)
+// import wrap from '@/components/wrap'; 
+// Vue.component('wrap', wrap)
  
 
 
