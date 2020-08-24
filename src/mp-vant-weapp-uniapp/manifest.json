@@ -1,6 +1,6 @@
 {
-    "name" : "VANT UI",
-    "description" : "VANT UI Demo",
+    "name" : "VANT-MPUI",
+    "description" : "VANT-MPUI Demo",
     "versionName" : "1.0.0",
     "versionCode" : 100,
     "transformPx" : false,
@@ -47,15 +47,16 @@
     /* 快应用特有相关 */
     "mp-weixin" : {
         /* 小程序特有相关 */
-        "appid" : "",
+        "appid" : "wxea98fe670af55ca4",
         /*是否启用`自定义组件模式`，为true表示新的`自定义组件模式`，否则为`template模板模式`  */
         "usingComponents" : true,
         "setting" : {
-            "urlCheck" : true,
+            "urlCheck" : false,
             "es6" : true,
             "minified" : true,
             "postcss" : true
         },
         "permission" : {}
-    }
+    },
+    "appid" : "__UNI__A8052D9"
 }

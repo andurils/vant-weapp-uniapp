@@ -1,11 +1,22 @@
 /* 页面整体样式设置 */
 .app {
 	background-color: #F8F8F8;
+	border-top: 1rpx solid #f5f4f7;
 	min-height: 100vh;
 }
 
 
 /* 示例元素间距 */
 .demo-margin-right {
-	margin-right: 30upx;
+	margin-right: 24upx;
+}
+
+/* 占位行 */
+.clear-row {
+	min-height: 24upx;
+}
+
+/* 占位行 */
+.clear-blank {
+	min-height: 100upx;
 }

@@ -2,10 +2,10 @@
 
 import Vue from 'vue'
 
-import Dialog from '../wxcomponents/vant/dialog/dialog';
-import Toast from '../wxcomponents/vant/toast/toast';
-import Notify from '../wxcomponents/vant/notify/notify';
+// import Dialog from '../wxcomponents/vant/dialog/dialog';
+// import Toast from '../wxcomponents/vant/toast/toast';
+// import Notify from '../wxcomponents/vant/notify/notify';
 
-Vue.prototype.$dialog = Dialog;
-Vue.prototype.$toast = Toast;
-Vue.prototype.$notify = Notify;
+// Vue.prototype.$dialog = Dialog;
+// Vue.prototype.$toast = Toast;
+// Vue.prototype.$notify = Notify;
