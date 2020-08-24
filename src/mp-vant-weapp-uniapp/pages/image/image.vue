@@ -67,6 +67,7 @@
 				</van-col>
 			</van-row>
 		</wrap>
+		<view class="clear-blank"></view>
 	</view>
 </template>
 
