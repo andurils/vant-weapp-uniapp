@@ -1,6 +1,6 @@
 import { VantComponent } from '../common/component';
 import { touch } from '../mixins/touch';
-import { isDef, addUnit } from '../common/utils';
+import { getAllRect, getRect, isDef } from '../common/utils';
 VantComponent({
   mixins: [touch],
   classes: ['nav-class', 'tab-class', 'tab-active-class', 'line-class'],
@@ -21,11 +21,12 @@ VantComponent({
     },
   },
   props: {
-    color: {
-      type: String,
-      observer: 'setLine',
-    },
     sticky: Boolean,
+    border: Boolean,
+    swipeable: Boolean,
+    titleActiveColor: String,
+    titleInactiveColor: String,
+    color: String,
     animated: {
       type: Boolean,
       observer() {
@@ -34,19 +35,15 @@ VantComponent({
         );
       },
     },
-    swipeable: Boolean,
     lineWidth: {
       type: [String, Number],
-      value: -1,
+      value: 40,
       observer: 'setLine',
     },
     lineHeight: {
       type: [String, Number],
       value: -1,
-      observer: 'setLine',
     },
-    titleActiveColor: String,
-    titleInactiveColor: String,
     active: {
       type: [String, Number],
       value: 0,
@@ -59,10 +56,6 @@ VantComponent({
     type: {
       type: String,
       value: 'line',
-    },
-    border: {
-      type: Boolean,
-      value: true,
     },
     ellipsis: {
       type: Boolean,
@@ -100,8 +93,10 @@ VantComponent({
     scrollLeft: 0,
     scrollable: false,
     trackStyle: '',
-    currentIndex: null,
+    currentIndex: 0,
     container: null,
+    skipTransition: true,
+    lineOffsetLeft: 0,
   },
   mounted() {
     wx.nextTick(() => {
@@ -194,45 +189,26 @@ VantComponent({
         return activeTab.getComputedName();
       }
     },
-    setLine(skipTransition) {
+    setLine(skipTransition = false) {
       if (this.data.type !== 'line') {
         return;
       }
-      const {
-        color,
-        duration,
-        currentIndex,
-        lineWidth,
-        lineHeight,
-      } = this.data;
-      this.getRect('.van-tab', true).then((rects = []) => {
+      const { currentIndex } = this.data;
+      Promise.all([
+        getAllRect.call(this, '.van-tab'),
+        getRect.call(this, '.van-tabs__line'),
+      ]).then(([rects = [], lineRect]) => {
         const rect = rects[currentIndex];
         if (rect == null) {
           return;
         }
-        const width = lineWidth !== -1 ? lineWidth : rect.width / 2;
-        const height =
-          lineHeight !== -1
-            ? `height: ${addUnit(lineHeight)}; border-radius: ${addUnit(
-                lineHeight
-              )};`
-            : '';
-        let left = rects
+        let lineOffsetLeft = rects
           .slice(0, currentIndex)
           .reduce((prev, curr) => prev + curr.width, 0);
-        left += (rect.width - width) / 2;
-        const transition = skipTransition
-          ? ''
-          : `transition-duration: ${duration}s; -webkit-transition-duration: ${duration}s;`;
+        lineOffsetLeft += (rect.width - lineRect.width) / 2;
         this.setData({
-          lineStyle: `
-            ${height}
-            width: ${addUnit(width)};
-            background-color: ${color};
-            -webkit-transform: translateX(${left}px);
-            transform: translateX(${left}px);
-            ${transition}
-          `,
+          lineOffsetLeft,
+          skipTransition,
         });
       });
     },
@@ -243,8 +219,8 @@ VantComponent({
         return;
       }
       Promise.all([
-        this.getRect('.van-tab', true),
-        this.getRect('.van-tabs__nav'),
+        getAllRect.call(this, '.van-tab'),
+        getRect.call(this, '.van-tabs__nav'),
       ]).then(([tabRects, navRect]) => {
         const tabRect = tabRects[currentIndex];
         const offsetLeft = tabRects

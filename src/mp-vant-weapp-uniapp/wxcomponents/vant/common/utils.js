@@ -1,12 +1,10 @@
+import { isNumber, isPlainObject } from './validator';
 export function isDef(value) {
   return value !== undefined && value !== null;
 }
 export function isObj(x) {
   const type = typeof x;
   return x !== null && (type === 'object' || type === 'function');
-}
-export function isNumber(value) {
-  return /^\d+(\.\d+)?$/.test(value);
 }
 export function range(num, min, max) {
   return Math.min(Math.max(num, min), max);
@@ -16,7 +14,7 @@ export function nextTick(fn) {
     fn();
   }, 1000 / 30);
 }
-let systemInfo = null;
+let systemInfo;
 export function getSystemInfoSync() {
   if (systemInfo == null) {
     systemInfo = wx.getSystemInfoSync();
@@ -42,4 +40,33 @@ export function requestAnimationFrame(cb) {
     .exec(() => {
       cb();
     });
+}
+export function pickExclude(obj, keys) {
+  if (!isPlainObject(obj)) {
+    return {};
+  }
+  return Object.keys(obj).reduce((prev, key) => {
+    if (!keys.includes(key)) {
+      prev[key] = obj[key];
+    }
+    return prev;
+  }, {});
+}
+export function getRect(selector) {
+  return new Promise((resolve) => {
+    wx.createSelectorQuery()
+      .in(this)
+      .select(selector)
+      .boundingClientRect()
+      .exec((rect = []) => resolve(rect[0]));
+  });
+}
+export function getAllRect(selector) {
+  return new Promise((resolve) => {
+    wx.createSelectorQuery()
+      .in(this)
+      .selectAll(selector)
+      .boundingClientRect()
+      .exec((rect = []) => resolve(rect[0]));
+  });
 }

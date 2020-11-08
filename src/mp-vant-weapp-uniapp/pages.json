@@ -59,6 +59,18 @@
 		{"path": "pages/submit-bar/submit-bar","style":{"navigationBarTitleText":"SubmitBar 提交订单栏","navigationStyle": "default"}}, 
 		{"path": "pages/goods-action/goods-action","style":{"navigationBarTitleText":"GoodsAction 商品导航","navigationStyle": "default"}}
     ],
+	
+	"subPackages": [{
+		"root": "pagesA",
+		"pages": [
+			{"path": "index/index","style":{"navigationBarTitleText":"工具","navigationStyle": "default"}}
+		] 
+	},{
+		"root": "pagesB",
+		"pages": [
+			{"path": "index/index","style":{"navigationBarTitleText":"模板","navigationStyle": "default"}}
+		] 
+	}],
 	"globalStyle": {
 		"mp-alipay": {
 			/* 支付宝小程序特有相关 */

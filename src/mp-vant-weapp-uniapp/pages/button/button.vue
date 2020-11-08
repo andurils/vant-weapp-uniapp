@@ -126,7 +126,8 @@ export default {
 		wrap
 	},
 	data() {
-		return {};
+		return {  
+		};
 	},
 	onLoad() {},
 	methods: {
