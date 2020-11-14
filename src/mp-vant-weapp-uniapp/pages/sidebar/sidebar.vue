@@ -19,28 +19,31 @@
 </template>
 
 <script>
-	import Page from '../../common/page';
-	export default {
-		data() {
-			return {
-				activeKey: 0,
-			};
-		},
-		methods: {
-			onChange(event) {
-				console.log(event);
-				uni.showToast({
-					icon: 'none',
-					title: `切换至第${event.detail}项`
-				});
-			}
-
-		},
-	};
+import Page from '../../common/page';
+import wrap from '@/components/wrap';
+export default {
+	components: {
+		wrap
+	},
+	data() {
+		return {
+			activeKey: 0
+		};
+	},
+	methods: {
+		onChange(event) {
+			console.log(event);
+			uni.showToast({
+				icon: 'none',
+				title: `切换至第${event.detail}项`
+			});
+		}
+	}
+};
 </script>
 
 <style>
-	/* .van-icon-question {
+/* .van-icon-question {
 		margin-left: 5px;
 		font-size: 15px !important;
 		color: #1989fa;

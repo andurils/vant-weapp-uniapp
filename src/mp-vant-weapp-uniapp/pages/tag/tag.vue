@@ -54,26 +54,30 @@
 </template>
 
 <script>
-	import Page from '../../common/page';
-	export default {
-		data() {
-			return {
-				show: {
-					success: true,
-					primary: true
-				}
+import Page from '../../common/page';
+import wrap from '@/components/wrap';
+export default {
+	components: {
+		wrap
+	},
+	data() {
+		return {
+			show: {
+				success: true,
+				primary: true
 			}
-		},
-		methods: {
-			onClose(event) {
-				this.show[`${event.target.id}`] = false;
-			}
+		};
+	},
+	methods: {
+		onClose(event) {
+			this.show[`${event.target.id}`] = false;
 		}
 	}
+};
 </script>
 
 <style>
-	.van-tag {
-		margin: 5px;
-	}
+.van-tag {
+	margin: 5px;
+}
 </style>

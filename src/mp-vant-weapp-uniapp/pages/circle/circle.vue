@@ -1,8 +1,6 @@
 <template>
 	<view class="app">
-		<wrap title="基础用法">
-			<van-circle :value="value" :text="procText" />
-		</wrap>
+		<wrap title="基础用法"><van-circle :value="value" :text="procText" /></wrap>
 
 		<wrap title="样式定制">
 			<van-circle :value="value" stroke-width="6" text="宽度定制" />
@@ -18,37 +16,41 @@
 </template>
 
 <script>
-	import Page from '../../common/page';
-	export default {
-		data() {
-			return {
-				value: 25,
-				gradientColor: {
-					'0%': '#ffd01e',
-					'100%': '#ee0a24'
-				}
+import Page from '../../common/page';
+import wrap from '@/components/wrap';
+export default {
+	components: {
+		wrap
+	},
+	data() {
+		return {
+			value: 25,
+			gradientColor: {
+				'0%': '#ffd01e',
+				'100%': '#ee0a24'
 			}
-		},
-		computed: {
-			procText: function() { 
-				return `${this.value}%`;
-			}
-		},
-		methods: {
-			run(e) {
-				const step = parseFloat(e.currentTarget.dataset.step);
-				this.value = this.value + parseInt(step);
-			}
+		};
+	},
+	computed: {
+		procText: function() {
+			return `${this.value}%`;
+		}
+	},
+	methods: {
+		run(e) {
+			const step = parseFloat(e.currentTarget.dataset.step);
+			this.value = this.value + parseInt(step);
 		}
 	}
+};
 </script>
 
 <style>
-	.van-circle {
-		margin: 5px 10px 20px;
-	}
+.van-circle {
+	margin: 5px 10px 20px;
+}
 
-	.van-button {
-		margin-left: 10px;
-	}
+.van-button {
+	margin-left: 10px;
+}
 </style>

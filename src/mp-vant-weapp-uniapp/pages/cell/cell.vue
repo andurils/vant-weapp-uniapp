@@ -52,11 +52,19 @@
 					<van-tag type="danger">标签</van-tag>
 				</view>
 			</van-cell>
+			<van-cell title="单元格" value="内容" icon="location-o" use-label-slot="false"><view slot="label">自定义描述</view></van-cell>
 			<van-cell title="单元格" icon="location-o"><van-icon slot="right-icon" name="search" /></van-cell>
 		</view>
 
 		<wrap title="垂直居中"></wrap>
 		<view><van-cell center title="单元格" value="内容" label="描述信息" /></view>
+
+		<wrap title="自定义样式"></wrap>
+		<view>
+			<van-cell-group custom-class="cus-cellgroup">
+				<van-cell title="单元格" value="内容" label="描述信息" :border="false" title-class="cus-title" label-class="cus-label" value-class="cus-value" />
+			</van-cell-group>
+		</view>
 		<view class="clear-blank"></view>
 	</view>
 </template>
@@ -78,9 +86,19 @@ export default {
 </script>
 
 <style lang="scss">
-.title {
-	margin-right: 5px;
-	display: inline-block;
-	vertical-align: middle;
+.cus-cellgroup {
+	padding: 10rpx;
+	border: $uni-color-primary 4rpx solid !important;
+	background-color: #990055;
+}
+.cus-title {
+	color: $uni-color-error !important;
+	background-color: $uni-color-primary !important;
+}
+.cus-label {
+	background-color: $uni-color-warning !important;
+}
+.cus-value {
+	background-color: $uni-color-success !important;
 }
 </style>

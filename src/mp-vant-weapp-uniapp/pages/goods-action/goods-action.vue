@@ -1,7 +1,6 @@
 <template>
 	<div class="app goods-action-wrapper">
-		<wrap title="基础用法">
-		</wrap>
+		<wrap title="基础用法"></wrap>
 		<van-goods-action class="action-wrapper">
 			<van-goods-action-icon icon="chat-o" text="客服" @click="onClickIcon" />
 			<van-goods-action-icon icon="cart-o" text="购物车" @click="onClickIcon" />
@@ -9,8 +8,7 @@
 			<van-goods-action-button text="立即购买" @click="onClickButton" />
 		</van-goods-action>
 
-		<wrap title="图标提示">
-		</wrap>
+		<wrap title="图标提示"></wrap>
 		<van-goods-action class="action-wrapper">
 			<van-goods-action-icon icon="chat-o" text="客服" dot />
 			<van-goods-action-icon icon="cart-o" text="购物车" info="5" />
@@ -19,8 +17,7 @@
 			<van-goods-action-button text="立即购买" />
 		</van-goods-action>
 
-		<wrap title="自定义按钮颜色">
-		</wrap>
+		<wrap title="自定义按钮颜色"></wrap>
 		<van-goods-action class="action-wrapper">
 			<van-goods-action-icon icon="chat-o" text="客服" dot />
 			<van-goods-action-icon icon="cart-o" text="购物车" info="5" />
@@ -29,8 +26,7 @@
 			<van-goods-action-button color="#7232dd" text="立即购买" />
 		</van-goods-action>
 
-		<wrap title="朴素按钮">
-		</wrap>
+		<wrap title="朴素按钮"></wrap>
 		<van-goods-action class="action-wrapper">
 			<van-goods-action-icon icon="chat-o" text="客服" />
 			<van-goods-action-icon icon="cart-o" text="购物车" info="5" />
@@ -43,20 +39,24 @@
 	</div>
 </template>
 <script>
-	import Page from '../../common/page';
-	export default {
-		methods: {
-			onClickIcon() {
-				this.$toast('点击图标');
-			},
-			onClickButton() {
-				this.$toast('点击按钮');
-			},
+import Page from '../../common/page';
+import wrap from '@/components/wrap';
+export default {
+	components: {
+		wrap
+	},
+	methods: {
+		onClickIcon() {
+			this.$toast('点击图标');
 		},
-	};
+		onClickButton() {
+			this.$toast('点击按钮');
+		}
+	}
+};
 </script>
 <style>
-	.action-wrapper .van-goods-action {
-		position: static;
-	}
+.action-wrapper .van-goods-action {
+	position: static;
+}
 </style>

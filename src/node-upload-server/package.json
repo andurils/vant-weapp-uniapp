@@ -4,7 +4,8 @@
     "description": "Upload images from mobile client to node js server",
     "main": "app.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "node app.js"
     },
     "author": "Anduril",
     "license": "ISC",

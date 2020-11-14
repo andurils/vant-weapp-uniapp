@@ -1,8 +1,6 @@
 <template>
 	<view class="container">
-		<wrap title="基础用法">
-			<van-card num="2" price="2.00" desc="描述信息" title="商品标题" :thumb="imageURL" />
-		</wrap>
+		<wrap title="基础用法"><van-card num="2" price="2.00" desc="描述信息" title="商品标题" :thumb="imageURL" /></wrap>
 
 		<wrap title="高级用法">
 			<van-card num="2" tag="标签" price="2.00" origin-price="10.00" desc="描述信息" title="商品标题" :thumb="imageURL">
@@ -20,34 +18,34 @@
 </template>
 
 <script>
-	import Page from '../../common/page';
-
-	export default {
-		data() {
-			return {
-				imageURL: 'https://img.yzcdn.cn/upload_files/2017/07/02/af5b9f44deaeb68000d7e4a711160c53.jpg'
-
-			}
-		},
-		onLoad() {},
-		methods: {
-
-		}
-	}
+import Page from '../../common/page';
+import wrap from '@/components/wrap';
+export default {
+	components: {
+		wrap
+	},
+	data() {
+		return {
+			imageURL: 'https://img.yzcdn.cn/upload_files/2017/07/02/af5b9f44deaeb68000d7e4a711160c53.jpg'
+		};
+	},
+	onLoad() {},
+	methods: {}
+};
 </script>
 
 <style>
-	.container {
-		height: 100vh;
-		background-color: #fff;
-	}
+.container {
+	height: 100vh;
+	background-color: #fff;
+}
 
-	.tag,
-	.button {
-		margin-right: 5px;
-	}
+.tag,
+.button {
+	margin-right: 5px;
+}
 
-	.van-card__footer {
-		margin-top: 5px;
-	}
+.van-card__footer {
+	margin-top: 5px;
+}
 </style>

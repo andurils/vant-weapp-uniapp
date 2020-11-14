@@ -10,6 +10,7 @@
 			</van-row>
 		</wrap>
 
+		<!-- #ifdef MP-WEIXIN -->
 		<wrap title="长按图片显示识别小程序码菜单">
 			<van-row gutter="20">
 				<van-col span="8">
@@ -18,6 +19,7 @@
 				</van-col>
 			</van-row>
 		</wrap>
+		<!-- #endif -->
 
 		<wrap :title="item.name" v-for="(item, index) in types" :key="index">
 			<van-row gutter="20">
@@ -67,6 +69,11 @@
 				</van-col>
 			</van-row>
 		</wrap>
+		<wrap title="自定义样式">
+			<van-row gutter="20">
+				<van-col span="8"><van-image width="100" height="100" custom-class="cus-root" image-class="cus-image" :src="sampleImgPath" /></van-col>
+			</van-row>
+		</wrap>
 		<view class="clear-blank"></view>
 	</view>
 </template>
@@ -84,7 +91,8 @@ export default {
 			fits0: ['contain', 'cover', 'fill'],
 			fits1: ['none', 'scale-down', 'widthFix'],
 			fits2: ['heightFix'],
-			src: 'https://img.yzcdn.cn/vant/cat.jpeg'
+			src: 'https://img.yzcdn.cn/vant/cat.jpeg',
+			sampleImgPath: require('../../statics/images/sample1.png')
 		};
 	},
 	methods: {
@@ -101,7 +109,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .bg-white {
 	background-color: #ffffff !important;
 }
@@ -112,5 +120,12 @@ export default {
 
 	font-size: 12px;
 	line-height: 18px;
+}
+
+.cus-root {
+	border: #007aff 4rpx solid;
+}
+.cus-image {
+	opacity: 0.5;
 }
 </style>

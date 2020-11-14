@@ -46,7 +46,8 @@
 <script>
 import wrap from '@/components/wrap';
 // npm i @vant/icons -S
-import icons from '@/components/@vant/icons/src/config';
+import icons from '@vant/icons/src/config';
+// import icons from '@/components/@vant/icons/src/config';
 import Notify from '@/wxcomponents/vant/notify/notify';
 
 const basic = icons.basic;

@@ -1,8 +1,6 @@
 <template>
 	<view class="app">
-		<wrap padding title="基础用法">
-			<van-button type="danger" @click="showNotify">基础用法</van-button>
-		</wrap>
+		<wrap padding title="基础用法"><van-button type="danger" @click="showNotify">基础用法</van-button></wrap>
 
 		<wrap padding title="通知类型">
 			<view class="demo-margin-bottom">
@@ -20,69 +18,67 @@
 			<van-button type="primary" @click="showCustomDuration">自定义时长</van-button>
 		</wrap>
 
-		<wrap padding title="插入状态栏高度">
-			<van-button type="primary" class="demo-margin-right" @click="showSafe">插入状态栏高度</van-button>
-		</wrap>
+		<wrap padding title="插入状态栏高度"><van-button type="primary" class="demo-margin-right" @click="showSafe">插入状态栏高度</van-button></wrap>
 
 		<van-notify id="van-notify" />
 		<van-notify id="custom-selector" />
 
-		<wrap padding title="备注">
-			使用自定义导航 notify 样式中 top:0 无法动态设置！！
-		</wrap>
+		<!-- <wrap padding title="备注">使用自定义导航 notify 样式中 top:0 无法动态设置！！</wrap> -->
 	</view>
 </template>
 <script>
-	import Page from '../../common/page';
-	export default {
-		data() {
-			return {
-				StatusBar: this.StatusBar,
-				CustomBar: this.CustomBar,
-			}
+import Page from '../../common/page';
+import wrap from '@/components/wrap';
+import Notify from '@/wxcomponents/vant/notify/notify';
+export default {
+	components: {
+		wrap
+	},
+	data() {
+		return {
+			StatusBar: this.StatusBar,
+			CustomBar: this.CustomBar
+		};
+	},
+	methods: {
+		showNotify() {
+			Notify('通知内容');
 		},
-		methods: {
-			showNotify() {
-				this.$notify('通知内容');
-			},
 
-			showCustomColor() {
-				this.$notify({
-					message: '自定义颜色',
-					color: '#ad0000',
-					background: '#ffe1e1'
-				});
-			},
-
-			showCustomDuration() {
-				this.$notify({
-					duration: 10000,
-					message: '自定义时长',
-					selector: '#custom-selector',
-					backgroundColor: '#1989fa',
-					safeAreaInsetTop: true
-				});
-			},
-
-			showNotifyByType(event) {
-				const {
-					type
-				} = event.currentTarget.dataset;
-				this.$notify({
-					type,
-					message: '通知内容'
-				});
-			},
-
-			showSafe() {
-				this.$notify({
-					message: '通知内容',
-					safeAreaInsetTop: true
-				});
-			},
+		showCustomColor() {
+			Notify({
+				message: '自定义颜色',
+				color: '#ad0000',
+				background: '#ffe1e1'
+			});
 		},
-	};
+
+		showCustomDuration() {
+			Notify({
+				duration: 10000,
+				message: '自定义时长',
+				selector: '#custom-selector',
+				backgroundColor: '#1989fa',
+				safeAreaInsetTop: true
+			});
+		},
+
+		showNotifyByType(event) {
+			const { type } = event.currentTarget.dataset;
+			Notify({
+				type,
+				message: '通知内容'
+			});
+		},
+
+		showSafe() {
+			Notify({
+				message: '通知内容',
+				safeAreaInsetTop: true
+			});
+		}
+	}
+};
 </script>
 
-<style>
-</style>
+<style></style>

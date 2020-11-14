@@ -1,9 +1,7 @@
 <template>
 	<view class="app">
 		<wrap title="基础用法">
-			<van-panel title="标题" desc="描述信息" status="状态">
-				<view class="contentcls">内容</view>
-			</van-panel>
+			<van-panel title="标题" desc="描述信息" status="状态"><view class="contentcls">内容</view></van-panel>
 		</wrap>
 
 		<wrap title="高级用法">
@@ -19,19 +17,22 @@
 </template>
 
 <script>
-	import Page from '../../common/page';
-	export default {
-
-	};
+import Page from '../../common/page';
+import wrap from '@/components/wrap';
+export default {
+	components: {
+		wrap
+	}
+};
 </script>
 
 <style>
-	.contentcls {
-		padding: 20px;
-		font-size: 16px;
-	}
+.contentcls {
+	padding: 20px;
+	font-size: 16px;
+}
 
-	.footercls {
-		text-align: right;
-	}
+.footercls {
+	text-align: right;
+}
 </style>

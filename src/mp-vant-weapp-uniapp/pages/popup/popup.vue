@@ -2,7 +2,7 @@
 	<view class="app">
 		<wrap title="基础用法">
 			<van-cell title="展示弹出层" is-link @click="showBasic" />
-			<van-popup :show="show.basic" custom-style="padding: 30px 50px" @close="hideBasic">内容</van-popup>
+			<van-popup :show="show.basic" custom-style="padding: 30px 50px" overlay-style="background-color:rgba(0,0,0,.2)" @close="hideBasic">内容</van-popup>
 		</wrap>
 
 		<wrap title="弹出位置">

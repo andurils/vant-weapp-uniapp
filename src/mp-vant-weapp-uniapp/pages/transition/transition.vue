@@ -18,10 +18,10 @@
 				name=""
 				duration="{ enter: 300, leave: 1000 }"
 				custom-class="block"
-				enter-class="van-enter-class"
-				enter-active-class="van-enter-active-class"
-				leave-active-class="van-leave-active-class"
-				leave-to-class="van-leave-to-class"
+				enter-class="slide-fade-enter"
+				enter-active-class="slide-fade-enter-active"
+				leave-active-class="slide-fade-leave-active"
+				leave-to-class="slide-fade-leave-to"
 				@before-enter="onBeforeEnter"
 				@enter="onEnter"
 				@after-enter="onAfterEnter"
@@ -54,7 +54,7 @@ export default {
 			this.showCustom = true;
 			setTimeout(() => {
 				this.showCustom = false;
-			}, 1000);
+			}, 2000);
 		},
 		trigger(name) {
 			this.name = name;
@@ -148,5 +148,18 @@ export default {
 .van-leave-to-class {
 	background-color: red;
 	transform: rotate(-360deg) translate3d(-100%, -100%, 0);
+}
+
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
 }
 </style>

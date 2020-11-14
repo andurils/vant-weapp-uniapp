@@ -13,5 +13,6 @@ desktop.ini
 .idea
 
 images/* 
+uploads/* 
 
 package-lock.json

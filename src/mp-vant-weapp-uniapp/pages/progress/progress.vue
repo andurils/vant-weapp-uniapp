@@ -1,16 +1,10 @@
 <template>
 	<div class="app">
-		<wrap title="基础用法">
-			<van-progress custom-class="progress" percentage="50" />
-		</wrap>
+		<wrap title="基础用法"><van-progress custom-class="progress" percentage="50" /></wrap>
 
-		<wrap title="置灰">
-			<van-progress custom-class="progress" inactive percentage="50" />
-		</wrap>
+		<wrap title="置灰"><van-progress custom-class="progress" inactive percentage="50" /></wrap>
 
-		<wrap title="线条粗细">
-			<van-progress custom-class="progress" percentage="50" stroke-width="8" />
-		</wrap>
+		<wrap title="线条粗细"><van-progress custom-class="progress" percentage="50" stroke-width="8" /></wrap>
 
 		<wrap title="样式定制">
 			<van-progress custom-class="progress" pivot-text="橙色" color="#f2826a" percentage="25" />
@@ -21,12 +15,17 @@
 </template>
 
 <script>
-	import Page from '../../common/page';
-	export default {};
+import Page from '../../common/page';
+import wrap from '@/components/wrap';
+export default {
+	components: {
+		wrap
+	}
+};
 </script>
 
 <style>
-	.progress {
-		margin: 5px 15px 20px;
-	}
+.progress {
+	margin: 5px 15px 20px;
+}
 </style>
