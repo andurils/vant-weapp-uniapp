@@ -1,18 +1,18 @@
 <template>
 	<div class="app">
 		<wrap title="提示弹窗">
-			<van-button :plain="true" type="primary" class="demo-margin-right" @click="onClickAlert">提示弹窗</van-button>
-			<van-button :plain="true" type="primary" @click="onClickAlert2">提示弹窗(无标题)</van-button>
+			<van-cell title="提示弹窗" is-link @click="onClickAlert" />
+			<van-cell title="提示弹窗(无标题)" is-link @click="onClickAlert2" />
 		</wrap>
 
-		<wrap title="确认弹窗"><van-button :plain="true" type="primary" @click="onClickConfirm">确认弹窗</van-button></wrap>
+		<wrap title="确认弹窗"><van-cell title="确认弹窗" is-link @click="onClickConfirm" /></wrap>
 		<wrap title="圆角按钮样式">
-			<van-button :plain="true" type="primary" class="demo-margin-right" @click="onClickAlertC">提示弹窗</van-button>
-			<van-button :plain="true" type="primary" @click="onClickAlertC2">提示弹窗(无标题)</van-button>
+			<van-cell title="提示弹窗" is-link @click="onClickAlertC" />
+			<van-cell title="提示弹窗(无标题)" is-link @click="onClickAlertC2" />
 		</wrap>
-		<wrap title="异步关闭"><van-button :plain="true" type="primary" @click="onClickConfirmAsync">异步关闭</van-button></wrap>
+		<wrap title="异步关闭"><van-cell title="异步关闭" is-link @click="onClickConfirmAsync" /></wrap>
 
-		<wrap title="组件调用"><van-button :plain="true" type="danger" @click="showCustomDialog">组件调用</van-button></wrap>
+		<wrap title="组件调用"><van-cell title="组件调用" is-link @click="showCustomDialog" /></wrap>
 
 		<van-dialog
 			:use-slot="true"
@@ -28,7 +28,7 @@
 			<van-field :value="password" type="password" label="密码" :border="false" placeholder="请输入密码" />
 			<image src="https://img.yzcdn.cn/vant/apple-3.jpg" />
 		</van-dialog>
-
+		<view class="clear-blank"></view>
 		<van-dialog id="van-dialog" />
 	</div>
 </template>

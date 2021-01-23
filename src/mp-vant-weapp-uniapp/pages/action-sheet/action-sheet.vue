@@ -30,6 +30,7 @@
 			></van-action-sheet>
 		</wrap>
 
+		<view class="clear-blank"></view>
 		<van-toast id="van-toast" />
 		<van-dialog id="van-dialog" />
 	</view>
@@ -37,6 +38,9 @@
 
 <script>
 import Page from '../../common/page';
+import Dialog from '@/wxcomponents/vant/dialog/dialog';
+import Toast from '@/wxcomponents/vant/toast/toast';
+
 import wrap from '@/components/wrap';
 export default {
 	components: {
@@ -126,16 +130,14 @@ export default {
 			const { errMsg, userInfo } = event.detail;
 			if (errMsg == 'getUserInfo:ok') {
 				let message = '欢迎回来！' + userInfo.nickName;
-				this.$dialog
-					.alert({
-						title: '登录成功',
-						message
-					})
-					.then(() => {
-						console.log('confirm');
-					});
+				Dialog.alert({
+					title: '登录成功',
+					message
+				}).then(() => {
+					console.log('confirm');
+				});
 			} else {
-				this.$toast.fail('登录失败');
+				Toast.fail('登录失败');
 			}
 		},
 		getUserPhoneNum(event) {
@@ -143,20 +145,24 @@ export default {
 			const { errMsg, cloudID, encryptedData } = event.detail;
 			if (errMsg == 'getPhoneNumber:ok') {
 				// 信息需解密
-				this.$toast.success('登录成功');
+				Toast.success('登录成功');
 			} else {
-				this.$toast.fail('登录失败');
+				Toast.fail('登录失败');
 			}
 		},
 		getOpenSetting(event) {
-			this.$toast('授权设置');
+			Toast('授权设置');
 		},
 		getContact(event) {
 			console.log(event);
-			this.$toast('客服会话');
+			Toast('客服会话');
 		}
 	}
 };
 </script>
 
-<style></style>
+<style>
+.content {
+	min-height: 200upx !important;
+}
+</style>

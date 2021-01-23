@@ -6,16 +6,17 @@
 		</view>
 		<view class="desc">轻量、可靠的小程序 UI 组件库</view>
 
-		<!-- <view class="mobile-nav" v-if="activeName=='tab'+index" v-for="(group,index) in list" :key="index">
-			<view class="mobile-nav__title">{{ group.groupName }}({{group.list.length}})</view>
-			<van-cell-group>
-				<van-cell v-for="(item,key) in group.list" :key="key" is-link :url="'/pages' + item.path + item.path" :title="item.title"></van-cell>
-			</van-cell-group>
-		</view> -->
-
 		<view class="mobile-nav" v-for="(group, index) in list" :key="index">
 			<view class="mobile-nav__title">{{ group.groupName }}({{ group.list.length }})</view>
-			<van-cell-group><van-cell v-for="(item, key) in group.list" :key="key" is-link :url="'/pages' + item.path + item.path" :title="item.title"></van-cell></van-cell-group>
+			<van-cell
+				v-for="(item, key) in group.list"
+				:key="key"
+				is-link
+				:url="'/pages' + item.path + item.path"
+				:title="item.title"
+				:border="false"
+				custom-class="cus-root"
+			></van-cell>
 		</view>
 		<view class="clear"></view>
 
@@ -24,7 +25,7 @@
 			<van-tabbar :active="activeName" safe-area-inset-bottom="false" @change="onNameChange">
 				<van-tabbar-item name="tab0" icon="apps-o">组件</van-tabbar-item>
 				<van-tabbar-item name="tab1" icon="send-gift-o">工具</van-tabbar-item>
-				<van-tabbar-item name="tab2" icon="other-pay">模板</van-tabbar-item> 
+				<van-tabbar-item name="tab2" icon="other-pay">模板</van-tabbar-item>
 				<!-- 
 				<van-tabbar-item name="tab3" icon="photo-o">展示</van-tabbar-item>
 				<van-tabbar-item name="tab4" icon="cluster-o">导航</van-tabbar-item>
@@ -57,9 +58,10 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .app {
 	padding: 18px 15px 0;
+	background-color: $uni-bg-color;
 }
 
 .title {
@@ -95,12 +97,13 @@ export default {
 
 .mobile-nav {
 	margin-bottom: 20px;
+	min-height: 400rpx;
 }
 
 .mobile-nav__title {
 	font-size: 16px;
-	background-color: #fff;
-	padding: 17px 15px;
+	color: $uni-text-color;
+	padding: 15upx 30upx;
 }
 
 /* tabbar */
@@ -114,5 +117,16 @@ export default {
 
 .clear {
 	min-height: 100upx;
+}
+
+.cus-cellgroup {
+	// background-color: $uni-text-color-grey;
+	border: 0rpx solid;
+}
+
+.cus-root {
+	margin: 24rpx 0;
+	border-radius: 40rpx;
+	background-color: $uni-bg-color-grey !important;
 }
 </style>

@@ -50,14 +50,9 @@
 			/>
 		</wrap>
 
-		<wrap title="云存储上传">
-			<view class="">没有云存储，暂未实现</view>
-			<!-- <van-uploader name="6" :file-list="fileList6" @before-read="beforeRead" @after-read="afterRead" @delete="onDelete"
-			 @click-preview="clickPreview" :use-before-read="true" />
-			<view class="demo-margin-bottom">
-				<van-button type="primary" @click="uploadToCloud">上传至云存储</van-button>
-			</view> -->
-		</wrap>
+		<!-- <wrap title="云存储上传">
+			<view class="">没有云存储，暂未实现</view> 
+		</wrap> -->
 	</view>
 </template>
 

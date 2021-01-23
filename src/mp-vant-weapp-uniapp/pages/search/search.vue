@@ -10,15 +10,17 @@
 		<van-search :value="value" placeholder="请输入搜索关键词" input-align="center" />
 
 		<wrap title="禁用搜索框"></wrap>
-		<van-search :value="value" placeholder="请输入搜索关键词" disabled />
+		<van-search :value="value" placeholder="请输入搜索关键词" left-icon="hot-o" right-icon="share-o" disabled />
 
 		<wrap title="自定义背景色"></wrap>
 		<van-search :value="value" placeholder="请输入搜索关键词" shape="round" background="#4fc08d" />
 
 		<wrap title="自定义行动按钮"></wrap>
-		<van-search :value="value" placeholder="请输入搜索关键词" label="地址" :use-action-slot="true" @change="onChange" @search="onSearch">
+		<van-search :value="value" placeholder="请输入搜索关键词" :use-action-slot="true" @change="onChange" @search="onSearch">
 			<view slot="action" @tap="onSearch">搜索</view>
 		</van-search>
+
+		<view class="clear-blank"></view>
 	</view>
 </template>
 

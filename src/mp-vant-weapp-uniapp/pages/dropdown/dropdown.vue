@@ -33,6 +33,8 @@
 			<van-dropdown-item :value="value1" disabled :options="option1" />
 			<van-dropdown-item :value="value2" disabled :options="option2" />
 		</van-dropdown-menu>
+
+		<view class="clear-blank"></view>
 	</view>
 </template>
 
@@ -51,11 +53,13 @@ export default {
 			option1: [
 				{
 					text: '全部商品',
-					value: 0
+					value: 0,
+					icon: 'gem'
 				},
 				{
 					text: '新款商品',
-					value: 1
+					value: 1,
+					icon: 'cart-circle'
 				},
 				{
 					text: '活动商品',
