@@ -26,13 +26,14 @@ VantComponent({
     },
     asyncClose: Boolean,
     name: {
-      type: [Number, String],
+      type: null,
       value: '',
     },
   },
   mixins: [touch],
   data: {
     catchMove: false,
+    wrapperStyle: '',
   },
   created() {
     this.offset = 0;
@@ -98,7 +99,9 @@ VantComponent({
         return;
       }
       this.dragging = true;
-      ARRAY.filter((item) => item !== this).forEach((item) => item.close());
+      ARRAY.filter(
+        (item) => item !== this && item.offset !== 0
+      ).forEach((item) => item.close());
       this.setData({ catchMove: true });
       this.swipeMove(this.startOffset + this.deltaX);
     },

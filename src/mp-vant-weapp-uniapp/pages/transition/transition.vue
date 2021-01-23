@@ -10,7 +10,7 @@
 			<van-cell title="Slide Down" @click="onClickSlideDown" :is-link="true" />
 			<van-cell title="Slide Left" @click="onClickSlideLeft" :is-link="true" />
 			<van-cell title="Slide Right" @click="onClickSlideRight" :is-link="true" />
-			<van-cell title="Custom" @click="onCustom" :is-link="true" />
+			<!-- <van-cell title="Custom" @click="onCustom" :is-link="true" /> -->
 
 			<van-transition :show="show" :name="name" custom-class="block" />
 			<van-transition

@@ -1,5 +1,7 @@
-import { VantComponent } from '../common/component';
 import { GREEN } from '../common/color';
+import { VantComponent } from '../common/component';
+import { useChildren } from '../common/relation';
+import { getRect } from '../common/utils';
 import { pageScrollMixin } from '../mixins/page-scroll';
 const indexList = () => {
   const indexList = [];
@@ -10,17 +12,9 @@ const indexList = () => {
   return indexList;
 };
 VantComponent({
-  relation: {
-    name: 'index-anchor',
-    type: 'descendant',
-    current: 'index-bar',
-    linked() {
-      this.updateData();
-    },
-    unlinked() {
-      this.updateData();
-    },
-  },
+  relation: useChildren('index-anchor', function () {
+    this.updateData();
+  }),
   props: {
     sticky: {
       type: Boolean,
@@ -45,7 +39,8 @@ VantComponent({
   },
   mixins: [
     pageScrollMixin(function (event) {
-      this.scrollTop = event.scrollTop || 0;
+      this.scrollTop =
+        (event === null || event === void 0 ? void 0 : event.scrollTop) || 0;
       this.onScroll();
     }),
   ],
@@ -82,7 +77,7 @@ VantComponent({
     setAnchorsRect() {
       return Promise.all(
         this.children.map((anchor) =>
-          anchor.getRect('.van-index-anchor-wrapper').then((rect) => {
+          getRect(anchor, '.van-index-anchor-wrapper').then((rect) => {
             Object.assign(anchor, {
               height: rect.height,
               top: rect.top + this.scrollTop,
@@ -92,7 +87,7 @@ VantComponent({
       );
     },
     setListRect() {
-      return this.getRect('.van-index-bar').then((rect) => {
+      return getRect(this, '.van-index-bar').then((rect) => {
         Object.assign(this, {
           height: rect.height,
           top: rect.top + this.scrollTop,
@@ -100,7 +95,7 @@ VantComponent({
       });
     },
     setSiderbarRect() {
-      return this.getRect('.van-index-bar__sidebar').then((res) => {
+      return getRect(this, '.van-index-bar__sidebar').then((res) => {
         this.sidebar = {
           height: res.height,
           top: res.top,
@@ -119,7 +114,7 @@ VantComponent({
       }
     },
     getAnchorRect(anchor) {
-      return anchor.getRect('.van-index-anchor-wrapper').then((rect) => ({
+      return getRect(anchor, '.van-index-anchor-wrapper').then((rect) => ({
         height: rect.height,
         top: rect.top,
       }));

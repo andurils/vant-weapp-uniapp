@@ -20,7 +20,7 @@ VantComponent({
       observer: 'updateSubItems',
     },
     height: {
-      type: [Number, String],
+      type: null,
       value: 300,
     },
     max: {
@@ -62,7 +62,7 @@ VantComponent({
     updateSubItems() {
       const { items, mainActiveIndex } = this.data;
       const { children = [] } = items[mainActiveIndex] || {};
-      return this.set({ subItems: children });
+      this.setData({ subItems: children });
     },
   },
 });

@@ -19,20 +19,6 @@
 			></van-cell>
 		</view>
 		<view class="clear"></view>
-
-		<!-- tabbar -->
-		<view class="tabbar-wrapper">
-			<van-tabbar :active="activeName" safe-area-inset-bottom="false" @change="onNameChange">
-				<van-tabbar-item name="tab0" icon="apps-o">组件</van-tabbar-item>
-				<van-tabbar-item name="tab1" icon="send-gift-o">工具</van-tabbar-item>
-				<van-tabbar-item name="tab2" icon="other-pay">模板</van-tabbar-item>
-				<!-- 
-				<van-tabbar-item name="tab3" icon="photo-o">展示</van-tabbar-item>
-				<van-tabbar-item name="tab4" icon="cluster-o">导航</van-tabbar-item>
-				<van-tabbar-item name="tab5" icon="points">业务</van-tabbar-item> -->
-			</van-tabbar>
-		</view>
-		<!-- tabbar -->
 	</view>
 </template>
 
@@ -43,18 +29,11 @@ export default {
 	data() {
 		return {
 			list: list,
-			logoPath: require('../../statics/images/logo.png'),
-			activeName: 'tab0'
+			logoPath: require('../../statics/images/logo.png')
 		};
 	},
-	onLoad() {
-		// console.log(list);
-	},
-	methods: {
-		onNameChange(event) {
-			this.activeName = event.detail;
-		}
-	}
+	onLoad() {},
+	methods: {}
 };
 </script>
 
@@ -106,14 +85,7 @@ export default {
 	padding: 15upx 30upx;
 }
 
-/* tabbar */
-.tabbar-wrapper {
-	position: fixed;
-	width: 100%;
-	bottom: 0;
-	z-index: 1024;
-	box-shadow: 0 1upx 6upx rgba(0, 0, 0, 0.1);
-}
+ 
 
 .clear {
 	min-height: 100upx;

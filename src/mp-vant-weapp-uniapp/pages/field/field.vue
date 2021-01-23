@@ -1,16 +1,16 @@
 <template>
 	<div class="app">
 		<wrap title="基本用法"></wrap>
-		<van-cell-group><van-field :value="value" placeholder="请输入用户名" :border="false" left-icon="contact" :clearable="true" @input="change" /></van-cell-group>
+		<van-cell-group><van-field label="文本" :value="value" placeholder="请输入用户名" :border="false"  :clearable="true" @input="change" /></van-cell-group>
 
 		<wrap title="自定义类型"></wrap>
 		<van-cell-group>
-			<van-field @clickIcon="onClickIcon" :value="username" label="文本" placeholder="请输入文本" icon="question-o" icon-class="demo-icon" />
+			<van-field @clickIcon="onClickIcon" :value="username" label="文本" placeholder="请输入文本"   icon-class="demo-icon" />
 
 			<van-field :value="numberValue" type="number" label="整数" placeholder="请输入整数" />
 			<van-field :value="digitValue" type="digit" label="数字" placeholder="请输入数字(支持小数)" />
 
-			<van-field :value="password" type="password" label="密码" placeholder="请输入密码" required :border="false" />
+			<van-field :value="password" type="password" label="密码" placeholder="请输入密码"  :border="false" />
 		</van-cell-group>
 
 		<wrap title="禁用输入框"></wrap>
@@ -18,6 +18,9 @@
 			<van-field value="输入框只读" label="用户名" left-icon="contact" readonly :border="false" />
 			<van-field value="输入框已禁用" label="用户名" left-icon="contact" disabled :border="false" />
 		</van-cell-group>
+
+		<wrap title="显示图标"></wrap>
+		<van-cell-group><van-field @clickIcon="onClickIcon" :value="username" left-icon="contact"  required label="文本" placeholder="请输入文本" icon="question-o" icon-class="demo-icon" /></van-cell-group>
 
 		<wrap title="错误提示"></wrap>
 		<van-cell-group>
@@ -63,7 +66,7 @@ export default {
 			value: '哈哈',
 			numberValue: '',
 			digitValue: '',
-			username: '',
+			username: 'vant',
 			password: '',
 			username2: '',
 			phone: '',

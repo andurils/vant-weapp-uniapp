@@ -2,6 +2,8 @@
 	"pages": [
 		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages  
 		{"path": "pages/dashboard/dashboard","style":{"navigationBarTitleText":"Vant Weapp","navigationStyle": "default"}}, 
+		{"path": "pages/dashboard/tool","style":{"navigationBarTitleText":"Vant Weapp","navigationStyle": "default"}}, 
+		{"path": "pages/dashboard/tml","style":{"navigationBarTitleText":"Vant Weapp","navigationStyle": "default"}}, 
 		//基础组件
 		{"path": "pages/button/button","style":{"navigationBarTitleText":"Button 按钮","navigationStyle": "default"}}, 
 		{"path": "pages/cell/cell","style":{"navigationBarTitleText":"Cell 单元格","navigationStyle": "default"}},
@@ -149,12 +151,51 @@
 		}
 	},
 	"usingComponts": true,
+	"tabBar": {
+	   	"color": "#999",
+	   	"selectedColor": "#1876FF",
+	   	"borderStyle": "black",
+	   	"backgroundColor": "#fff",
+	    "list": [{
+			"pagePath": "pages/dashboard/dashboard", 
+			"text": "组件"
+		}, {
+			"pagePath": "pages/dashboard/tool", 
+			"text": "工具"
+		}, {
+			"pagePath": "pages/dashboard/tml", 
+			"text": "模板"
+		}]
+	},
+	// "tabBar": {
+	// 	"color": "#999",
+	// 	"selectedColor": "#1876FF",
+	// 	"borderStyle": "black",
+	// 	"backgroundColor": "#fff",
+	// 	"list": [{
+	// 		"pagePath": "pages/dashboard/dashboard",
+	// 		"iconPath": "static/images/tabbar/clue.png",
+	// 		"selectedIconPath": "static/images/tabbar/clue2.png",
+	// 		"text": "组件"
+	// 	}, {
+	// 		"pagePath": "pages/dashboard/tool",
+	// 		"iconPath": "static/images/tabbar/sale.png",
+	// 		"selectedIconPath": "static/images/tabbar/sale2.png",
+	// 		"text": "工具"
+	// 	}, {
+	// 		"pagePath": "pages/dashboard/tml",
+	// 		"iconPath": "static/images/tabbar/user.png",
+	// 		"selectedIconPath": "static/images/tabbar/user2.png",
+	// 		"text": "模板"
+	// 	}]
+	// },
+	
 	"condition": {
 		//模式配置，仅开发期间生效
 		"current": 0, //当前激活的模式(list 的索引项)
 		"list": [{
-			"name": "表单", //模式名称
-			"path": "pages/dashboard/dashboard", //启动页面
+			"name": "", //模式名称
+			"path": "", //启动页面
 			"query": "" //启动参数
 		}]
 	}

@@ -35,7 +35,7 @@ VantComponent({
     },
     rangePrompt: String,
     defaultDate: {
-      type: [Number, Array],
+      type: null,
       observer(val) {
         this.setData({ currentDate: val });
         this.scrollIntoView();
@@ -65,7 +65,7 @@ VantComponent({
       value: 'bottom',
     },
     rowHeight: {
-      type: [Number, String],
+      type: null,
       value: ROW_HEIGHT,
     },
     round: {
@@ -101,7 +101,7 @@ VantComponent({
       value: true,
     },
     maxRange: {
-      type: [Number, String],
+      type: null,
       value: null,
     },
   },
@@ -167,6 +167,7 @@ VantComponent({
           minDate,
           maxDate,
         } = this.data;
+        // @ts-ignore
         const targetDate = type === 'single' ? currentDate : currentDate[0];
         const displayed = show || !poppable;
         if (!targetDate || !displayed) {
@@ -198,6 +199,7 @@ VantComponent({
       const { date } = event.detail;
       const { type, currentDate, allowSameDay } = this.data;
       if (type === 'range') {
+        // @ts-ignore
         const [startDay, endDay] = currentDate;
         if (startDay && !endDay) {
           const compareToStart = compareDay(date, startDay);
@@ -213,6 +215,7 @@ VantComponent({
         }
       } else if (type === 'multiple') {
         let selectedIndex;
+        // @ts-ignore
         const selected = currentDate.some((dateItem, index) => {
           const equal = compareDay(dateItem, date) === 0;
           if (equal) {
@@ -221,10 +224,12 @@ VantComponent({
           return equal;
         });
         if (selected) {
+          // @ts-ignore
           const cancelDate = currentDate.splice(selectedIndex, 1);
           this.setData({ currentDate });
           this.unselect(cancelDate);
         } else {
+          // @ts-ignore
           this.select([...currentDate, date]);
         }
       } else {
@@ -284,6 +289,7 @@ VantComponent({
         return;
       }
       wx.nextTick(() => {
+        // @ts-ignore
         this.$emit('confirm', copyDates(this.data.currentDate));
       });
     },

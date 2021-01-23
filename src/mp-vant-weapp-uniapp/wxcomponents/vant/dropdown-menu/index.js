@@ -1,19 +1,12 @@
 import { VantComponent } from '../common/component';
-import { addUnit } from '../common/utils';
+import { useChildren } from '../common/relation';
+import { addUnit, getRect, getSystemInfoSync } from '../common/utils';
 let ARRAY = [];
 VantComponent({
   field: true,
-  relation: {
-    name: 'dropdown-item',
-    type: 'descendant',
-    current: 'dropdown-menu',
-    linked() {
-      this.updateItemListData();
-    },
-    unlinked() {
-      this.updateItemListData();
-    },
-  },
+  relation: useChildren('dropdown-item', function () {
+    this.updateItemListData();
+  }),
   props: {
     activeColor: {
       type: String,
@@ -52,7 +45,7 @@ VantComponent({
     itemListData: [],
   },
   beforeCreate() {
-    const { windowHeight } = wx.getSystemInfoSync();
+    const { windowHeight } = getSystemInfoSync();
     this.windowHeight = windowHeight;
     ARRAY.push(this);
   },
@@ -87,7 +80,7 @@ VantComponent({
     },
     getChildWrapperStyle() {
       const { zIndex, direction } = this.data;
-      return this.getRect('.van-dropdown-menu').then((rect) => {
+      return getRect(this, '.van-dropdown-menu').then((rect) => {
         const { top = 0, bottom = 0 } = rect;
         const offset = direction === 'down' ? bottom : this.windowHeight - top;
         let wrapperStyle = `z-index: ${zIndex};`;

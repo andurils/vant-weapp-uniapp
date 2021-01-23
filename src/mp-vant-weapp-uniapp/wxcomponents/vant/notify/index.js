@@ -1,5 +1,6 @@
 import { VantComponent } from '../common/component';
 import { WHITE } from '../common/color';
+import { getSystemInfoSync } from '../common/utils';
 VantComponent({
   props: {
     message: String,
@@ -28,9 +29,12 @@ VantComponent({
   },
   data: {
     show: false,
+    onOpened: null,
+    onClose: null,
+    onClick: null,
   },
   created() {
-    const { statusBarHeight } = wx.getSystemInfoSync();
+    const { statusBarHeight } = getSystemInfoSync();
     this.setData({ statusBarHeight });
   },
   methods: {

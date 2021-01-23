@@ -1,11 +1,9 @@
 import { VantComponent } from '../common/component';
+import { useParent } from '../common/relation';
+import { setContentAnimate } from './animate';
 VantComponent({
   classes: ['title-class', 'content-class'],
-  relation: {
-    name: 'collapse',
-    type: 'ancestor',
-    current: 'collapse-item',
-  },
+  relation: useParent('collapse'),
   props: {
     name: null,
     title: null,
@@ -26,20 +24,14 @@ VantComponent({
   data: {
     expanded: false,
   },
-  created() {
-    this.animation = wx.createAnimation({
-      duration: 0,
-      timingFunction: 'ease-in-out',
-    });
-  },
   mounted() {
     this.updateExpanded();
-    this.inited = true;
+    this.mounted = true;
   },
   methods: {
     updateExpanded() {
       if (!this.parent) {
-        return Promise.resolve();
+        return;
       }
       const { value, accordion } = this.parent.data;
       const { children = [] } = this.parent;
@@ -50,41 +42,9 @@ VantComponent({
         ? value === currentName
         : (value || []).some((name) => name === currentName);
       if (expanded !== this.data.expanded) {
-        this.updateStyle(expanded);
+        setContentAnimate(this, expanded, this.mounted);
       }
       this.setData({ index, expanded });
-    },
-    updateStyle(expanded) {
-      const { inited } = this;
-      this.getRect('.van-collapse-item__content')
-        .then((rect) => rect.height)
-        .then((height) => {
-          const { animation } = this;
-          if (expanded) {
-            if (height === 0) {
-              animation.height('auto').top(1).step();
-            } else {
-              animation
-                .height(height)
-                .top(1)
-                .step({
-                  duration: inited ? 300 : 1,
-                })
-                .height('auto')
-                .step();
-            }
-            this.setData({
-              animation: animation.export(),
-            });
-            return;
-          }
-          animation.height(height).top(0).step({ duration: 1 }).height(0).step({
-            duration: 300,
-          });
-          this.setData({
-            animation: animation.export(),
-          });
-        });
     },
     onClick() {
       if (this.data.disabled) {

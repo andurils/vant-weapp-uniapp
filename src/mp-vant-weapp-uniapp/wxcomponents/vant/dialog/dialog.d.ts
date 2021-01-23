@@ -1,9 +1,10 @@
-/// <reference types="wechat-miniprogram" />
-declare type DialogOptions = {
+/// <reference types="miniprogram-api-typings" />
+export declare type Action = 'confirm' | 'cancel' | 'overlay';
+interface DialogOptions {
   lang?: string;
   show?: boolean;
   title?: string;
-  width?: string | number;
+  width?: string | number | null;
   zIndex?: number;
   theme?: string;
   context?:
@@ -16,7 +17,11 @@ declare type DialogOptions = {
   className?: string;
   customStyle?: string;
   transition?: string;
+  /**
+   * @deprecated use beforeClose instead
+   */
   asyncClose?: boolean;
+  beforeClose?: null | (() => Promise<void> | void);
   businessId?: number;
   sessionFrom?: string;
   overlayStyle?: string;
@@ -32,10 +37,16 @@ declare type DialogOptions = {
   showCancelButton?: boolean;
   closeOnClickOverlay?: boolean;
   confirmButtonOpenType?: string;
-};
+}
 declare const Dialog: {
   (options: DialogOptions): Promise<
-    WechatMiniprogram.Component.TrivialInstance
+    WechatMiniprogram.Component.Instance<
+      Record<string, any>,
+      Record<string, any>,
+      Record<string, any>,
+      Record<string, any>,
+      false
+    >
   >;
   alert(
     options: DialogOptions
@@ -44,7 +55,8 @@ declare const Dialog: {
       Record<string, any>,
       Record<string, any>,
       Record<string, any>,
-      Record<string, any>
+      Record<string, any>,
+      false
     >
   >;
   confirm(
@@ -54,7 +66,8 @@ declare const Dialog: {
       Record<string, any>,
       Record<string, any>,
       Record<string, any>,
-      Record<string, any>
+      Record<string, any>,
+      false
     >
   >;
   close(): void;

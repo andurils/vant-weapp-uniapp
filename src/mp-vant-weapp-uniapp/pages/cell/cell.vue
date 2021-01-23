@@ -31,11 +31,12 @@
 
 		<wrap title="页面跳转"></wrap>
 		<view>
-			<van-cell is-link title="navigateTo(default)" link-type="navigateTo" url="/pages/dashboard/dashboard" />
-			<van-cell is-link title="reLaunch" link-type="reLaunch" url="/pages/dashboard/dashboard" />
+			<van-cell is-link title="navigateTo(default)" link-type="navigateTo" url="/pages/button/button" />
+			<van-cell is-link title="reLaunch" link-type="reLaunch" url="/pages/cell/cell" />
 			<!-- 使用tabbar -->
-			<!-- <van-cell is-link title="switchTab" link-type="switchTab" url="/pages/dashboard/dashboard" />
-		 	<van-cell is-link title="redirectTo" link-type="redirectTo " url="/pages/dashboard/dashboard" /> -->
+			<van-cell is-link title="switchTab" link-type="switchTab" url="/pages/dashboard/tool" />
+			<!-- wx[this.data.linkType] is not a function -->
+			<!-- <van-cell is-link title="redirectTo" link-type="redirectTo " url="/pages/dashboard/tool" /> -->
 		</view>
 
 		<wrap title="分组标题"></wrap>
