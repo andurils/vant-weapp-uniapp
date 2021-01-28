@@ -33,6 +33,7 @@
 		{"path": "pages/loading/loading","style":{"navigationBarTitleText":"loading","navigationStyle": "default"}},
 		{"path": "pages/notify/notify","style":{"navigationBarTitleText":"notify","navigationStyle": "default"}},
 		{"path": "pages/overlay/overlay","style":{"navigationBarTitleText":"Overlay 遮罩层","navigationStyle": "default"}},
+		{"path": "pages/share-sheet/share-sheet","style":{"navigationBarTitleText":"ShareSheet 分享面板","navigationStyle": "default"}},
 		{"path": "pages/swipe-cell/swipe-cell","style":{"navigationBarTitleText":"SwipeCell 滑动单元格","navigationStyle": "default"}}, 
 		{"path": "pages/toast/toast","style":{"navigationBarTitleText":"toast","navigationStyle": "default"}}, 
 		//展示组件
@@ -40,6 +41,7 @@
 		{"path": "pages/collapse/collapse","style":{"navigationBarTitleText":"collapse折叠面板","navigationStyle": "default"}}, 
 		{"path": "pages/count-down/count-down","style":{"navigationBarTitleText":"CountDown 倒计时","navigationStyle": "default"}}, 
 		{"path": "pages/divider/divider","style":{"navigationBarTitleText":"Divider 分割线","navigationStyle": "default"}}, 
+		{"path": "pages/empty/empty","style":{"navigationBarTitleText":"Empty 空状态","navigationStyle": "default"}}, 
 		{"path": "pages/notice-bar/notice-bar","style":{"navigationBarTitleText":"NoticeBar 通告栏","navigationStyle": "default"}}, 
 		{"path": "pages/panel/panel","style":{"navigationBarTitleText":"Panel 面板","navigationStyle": "default"}},
 		{"path": "pages/progress/progress","style":{"navigationBarTitleText":"Progress 进度条","navigationStyle": "default"}}, 
@@ -59,7 +61,7 @@
 		{"path": "pages/area/area","style":{"navigationBarTitleText":"Area 省市区选择","navigationStyle": "default"}},
 		{"path": "pages/card/card","style":{"navigationBarTitleText":"Card 商品卡片","navigationStyle": "default"}}, 
 		{"path": "pages/submit-bar/submit-bar","style":{"navigationBarTitleText":"SubmitBar 提交订单栏","navigationStyle": "default"}}, 
-		{"path": "pages/goods-action/goods-action","style":{"navigationBarTitleText":"GoodsAction 商品导航","navigationStyle": "default"}}
+		{"path": "pages/goods-action/goods-action","style":{"navigationBarTitleText":"GoodsAction 商品导航","navigationStyle": "default"}} 
     ],
 	
 	"subPackages": [{
@@ -147,7 +149,9 @@
 			"van-index-anchor": "/wxcomponents/vant/index-anchor/index",
 			"van-sidebar": "/wxcomponents/vant/sidebar/index",
 			"van-sidebar-item": "/wxcomponents/vant/sidebar-item/index",
-			"van-calendar": "/wxcomponents/vant/calendar/index"
+			"van-calendar": "/wxcomponents/vant/calendar/index",
+			"van-share-sheet": "/wxcomponents/vant/share-sheet/index",
+			"van-empty": "/wxcomponents/vant/empty/index"
 		}
 	},
 	"usingComponts": true,

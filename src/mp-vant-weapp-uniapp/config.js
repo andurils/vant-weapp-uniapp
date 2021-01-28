@@ -110,6 +110,10 @@ export default [{
 				title: 'Overlay 遮罩层'
 			},
 			{
+				path: '/share-sheet',
+				title: 'ShareSheet 分享面板'
+			},
+			{
 				path: '/swipe-cell',
 				title: 'SwipeCell 滑动单元格'
 			},
@@ -138,6 +142,10 @@ export default [{
 			{
 				path: '/divider',
 				title: 'Divider 分割线'
+			},
+			{
+				path: '/empty',
+				title: 'Empty 空状态'
 			},
 			{
 				path: '/notice-bar',

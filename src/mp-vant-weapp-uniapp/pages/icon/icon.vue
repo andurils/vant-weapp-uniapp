@@ -1,5 +1,5 @@
 <template>
-	<div class="app">
+	<view class="app">
 		<van-tabs sticky :active="active" @change="onSwitch">
 			<van-tab title="用法示例">
 				<wrap title="基础用法">
@@ -40,70 +40,74 @@
 			</van-tab>
 		</van-tabs>
 		<van-notify id="van-notify" />
-	</div>
+	</view>
 </template>
 
 <script>
-import wrap from '@/components/wrap';
-// npm i @vant/icons -S
-import icons from '@vant/icons/src/config';
-// import icons from '@/components/@vant/icons/src/config';
-import Notify from '@/wxcomponents/vant/notify/notify';
+	import wrap from '@/components/wrap';
+	// npm i @vant/icons -S
+	import icons from '@vant/icons/src/config';
+	import Notify from '@/wxcomponents/vant/notify/notify';
 
-const basic = icons.basic;
-const outline = icons.outline;
-const filled = icons.filled;
-export default {
-	components: {
-		wrap
-	},
-	data() {
-		return {
-			basic,
-			outline,
-			filled,
-			active: 0
-		};
-	},
-	methods: {
-		onSwitch(event) {
-			this.active = event.detail.index;
+	const basic = icons.basic;
+	const outline = icons.outline;
+	const filled = icons.filled;
+	export default {
+		components: {
+			wrap
 		},
-		clickCopy(event) {
-			const { key } = event.currentTarget.dataset;
-			let componentEx = `<van-icon name="${key}" />`;
+		data() {
+			return {
+				basic,
+				outline,
+				filled,
+				active: 0
+			};
+		},
+		methods: {
+			onSwitch(event) {
+				this.active = event.detail.index;
+			},
+			clickCopy(event) {
+				const {
+					key
+				} = event.currentTarget.dataset;
+				let componentEx = `<van-icon name="${key}" />`;
 
-			Notify({ type: 'success', message: '复制成功: ' + componentEx });
-			uni.setClipboardData({
-				data: componentEx,
-				success: function() {
-					console.log('copy success');
-				}
-			});
+				Notify({
+					type: 'success',
+					message: '复制成功: ' + componentEx
+				});
+				uni.setClipboardData({
+					data: componentEx,
+					success: function() {
+						console.log('copy success');
+					}
+				});
+			}
 		}
-	}
-};
+	};
 </script>
 
 <style lang="scss">
-.col {
-	text-align: center;
-	height: 100px;
-	float: none;
-	display: inline-block;
-	vertical-align: middle;
-}
+	.col {
+		text-align: center;
+		height: 100px;
+		float: none;
+		display: inline-block;
+		vertical-align: middle;
+	}
 
-.icon {
-	display: block;
-	margin: 15px 0;
-	color: rgba(69, 90, 100, 0.8);
-}
+	.icon {
+		display: block;
+		margin: 15px 0;
+		color: rgba(69, 90, 100, 0.8);
+	}
 
-.icon-text {
-	height: 36px;
-	color: #646566;
-	font-size: 12px;
-	line-height: 18px;
-}
+	.icon-text {
+		height: 36px;
+		color: #646566;
+		font-size: 12px;
+		line-height: 18px;
+	}
 </style>

@@ -1,12 +1,16 @@
 <template>
-	<view class="">
-		<wrap title="基础用法"><van-skeleton title row="3" row-width="['100%', '100%', '80%']" /></wrap>
+	<view class="app">
+		<wrap title="基础用法">
+			<van-skeleton title row="3" row-width="['100%', '100%', '80%']" />
+		</wrap>
 
-		<wrap title="显示头像"><van-skeleton title avatar row="3" /></wrap>
+		<wrap title="显示头像">
+			<van-skeleton title avatar row="3" />
+		</wrap>
 
 		<wrap title="展示子组件">
 			<van-switch :checked="show" size="24px" @change="onChange" />
-			<van-skeleton title avatar avatar-shape="square" row="3" :loading="show">
+			<van-skeleton title avatar avatar-shape="square" row="3" :loading="!show">
 				<view class="demo-preview">
 					<image class="demo-preview-img" src="https://img.yzcdn.cn/vant/logo.png" />
 					<view class="demo-content">
@@ -22,61 +26,63 @@
 </template>
 
 <script>
-import Page from '../../common/page';
-import wrap from '@/components/wrap';
-export default {
-	components: {
-		wrap
-	},
-	data() {
-		return {
-			show: true
-		};
-	},
-	computed: {},
-	methods: {
-		onChange(event) {
-			const { detail } = event;
-			this.show = detail;
+	import Page from '../../common/page';
+	import wrap from '@/components/wrap';
+	export default {
+		components: {
+			wrap
+		},
+		data() {
+			return {
+				show: false
+			};
+		},
+		computed: {},
+		methods: {
+			onChange(event) {
+				const {
+					detail
+				} = event;
+				this.show = detail;
+			}
 		}
-	}
-};
+	};
 </script>
 
 <style>
-page {
-	background-color: white;
-}
+	page {
+		background-color: white;
+	}
 
-.van-switch {
-	margin: 0 16px 8px;
-}
+	.van-switch {
+		margin: 0 16px 8px;
+	}
 
-.demo-preview {
-	display: flex;
-	padding: 0 16px;
-}
+	.demo-preview {
+		display: flex;
+		padding: 0 16px;
+	}
 
-.demo-content {
-	padding-top: 6px;
-}
+	.demo-content {
+		padding-top: 6px;
+	}
 
-.demo-content-h3 {
-	margin: 0;
-	font-size: 18px;
-	line-height: 20px;
-}
+	.demo-content-h3 {
+		margin: 0;
+		font-size: 18px;
+		line-height: 20px;
+	}
 
-.demo-content-p {
-	margin: 13px 0 0;
-	font-size: 14px;
-	line-height: 20px;
-}
+	.demo-content-p {
+		margin: 13px 0 0;
+		font-size: 14px;
+		line-height: 20px;
+	}
 
-.demo-preview-img {
-	flex-shrink: 0;
-	width: 32px;
-	height: 32px;
-	margin-right: 16px;
-}
+	.demo-preview-img {
+		flex-shrink: 0;
+		width: 32px;
+		height: 32px;
+		margin-right: 16px;
+	}
 </style>
