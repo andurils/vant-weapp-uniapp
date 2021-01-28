@@ -2,8 +2,7 @@
 	<view class="app">
 		<wrap title="单选模式"></wrap>
 		<van-tree-select :items="items" :main-active-index="mainActiveIndex" :active-id="activeId" @clickItem="onClickItem"
-		 @clickNav="onClickNav" selected-icon=""></van-tree-select>
-
+		 @clickNav="onClickNav" selected-icon="star-o"></van-tree-select>
 
 		<wrap title="多选模式"></wrap>
 		<van-tree-select max="4" :items="items" :main-active-index="mainActiveIndexMulti" :active-id="activeIdMulti"
@@ -34,10 +33,14 @@
 						children: [...config.pro1, ...config.pro2]
 					},
 					{
+						// 导航名称右上角徽标，1.5.0 版本开始支持
+						badge: 3,
 						text: config.pro1Name,
 						children: config.pro1
 					},
 					{
+						// 是否在导航名称右上角显示小红点，1.5.0 版本开始支持
+						dot: true,
 						text: config.pro2Name,
 						children: config.pro2
 					},
