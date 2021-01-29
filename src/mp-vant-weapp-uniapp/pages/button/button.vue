@@ -99,7 +99,7 @@
 				open-type="contact"
 				session-from="button demo"
 				send-message-title="发送小程序试试看标题"
-				send-message-img="../../static/images/sample1.png"
+				send-message-img="../../static/sample1.png"
 				show-message-card="true"
 				@contact="getContact"
 			>

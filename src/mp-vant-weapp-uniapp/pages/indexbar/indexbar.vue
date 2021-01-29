@@ -29,36 +29,37 @@
 </template>
 
 <script>
-import Page from '../../common/page';
+	
 
-const indexList = [];
-const charCodeOfA = 'A'.charCodeAt(0);
-for (let i = 0; i < 26; i++) {
-	indexList.push(String.fromCharCode(charCodeOfA + i));
-}
-
-import wrap from '@/components/wrap';
-export default {
-	components: {
-		wrap
-	},
-	data() {
-		return {
-			activeTab: 0,
-			indexList,
-			customIndexList: [1, 2, 3, 4, 5, 6, 8, 9, 10],
-			scrollTop: 0
-		};
-	},
-	methods: {
-		onChange(event) {
-			this.activeTab = event.detail.name;
-		},
-		onPageScroll(event) {
-			this.scrollTop = event.scrollTop;
-		}
+	const indexList = [];
+	const charCodeOfA = 'A'.charCodeAt(0);
+	for (let i = 0; i < 26; i++) {
+		indexList.push(String.fromCharCode(charCodeOfA + i));
 	}
-};
+	
+	import Page from '../../common/page';
+	import wrap from '@/components/wrap';
+	export default {
+		components: {
+			wrap
+		},
+		data() {
+			return {
+				activeTab: 0,
+				indexList,
+				customIndexList: [1, 2, 3, 4, 5, 6, 8, 9, 10],
+				scrollTop: 0
+			};
+		},
+		methods: {
+			onChange(event) {
+				this.activeTab = event.detail.name;
+			},
+			onPageScroll(event) {
+				this.scrollTop = event.scrollTop;
+			}
+		}
+	};
 </script>
 
 <style></style>

@@ -1,6 +1,6 @@
 <template>
 	<view>
-		MMMMMMMMMMMM
+		模板页面
 	</view>
 </template>
 

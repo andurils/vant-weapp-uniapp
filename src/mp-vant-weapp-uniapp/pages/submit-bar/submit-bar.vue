@@ -4,15 +4,8 @@
 		<van-submit-bar custom-class="root-class" :price="3050" button-text="提交订单" @submit="onSubmit" />
 
 		<wrap title="禁用状态"></wrap>
-		<van-submit-bar
-			custom-class="root-class"
-			disabled
-			:price="3050"
-			button-text="提交订单"
-			tip="您的收货地址不支持同城送, 我们已为您推荐快递"
-			tip-icon="info-o"
-			@submit="onSubmit"
-		/>
+		<van-submit-bar custom-class="root-class" disabled :price="3050" button-text="提交订单" tip="您的收货地址不支持同城送, 我们已为您推荐快递"
+		 tip-icon="info-o" @submit="onSubmit" />
 
 		<wrap title="加载状态"></wrap>
 		<van-submit-bar custom-class="root-class" loading :price="3050" button-text="提交订单" @submit="onSubmit" />
@@ -30,21 +23,22 @@
 	</div>
 </template>
 <script>
-import Page from '../../common/page';
-import wrap from '@/components/wrap';
-export default {
-	components: {
-		wrap
-	},
-	methods: {
-		onSubmit() {
-			this.$toast('点击按钮');
+	import Page from '../../common/page';
+	import wrap from '@/components/wrap';
+	import Toast from '@/wxcomponents/vant/toast/toast';
+	export default {
+		components: {
+			wrap
+		},
+		methods: {
+			onSubmit() {
+				Toast('点击按钮');
+			}
 		}
-	}
-};
+	};
 </script>
 <style>
-.submit-wapper .root-class {
-	position: static;
-}
+	.submit-wapper .root-class {
+		position: static;
+	}
 </style>

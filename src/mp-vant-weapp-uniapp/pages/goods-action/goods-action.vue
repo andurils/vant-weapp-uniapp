@@ -41,16 +41,17 @@
 <script>
 import Page from '../../common/page';
 import wrap from '@/components/wrap';
+import Toast from '@/wxcomponents/vant/toast/toast';
 export default {
 	components: {
 		wrap
 	},
 	methods: {
 		onClickIcon() {
-			this.$toast('点击图标');
+			Toast('点击图标');
 		},
 		onClickButton() {
-			this.$toast('点击按钮');
+			Toast('点击按钮');
 		}
 	}
 };

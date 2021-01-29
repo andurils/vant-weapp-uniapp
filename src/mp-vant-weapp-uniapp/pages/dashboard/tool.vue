@@ -1,6 +1,6 @@
 <template>
 	<view>
-		TTTTTTTTTTTT
+		工具页面
 	</view>
 </template>
 
@@ -8,11 +8,11 @@
 	export default {
 		data() {
 			return {
-				
+
 			}
 		},
 		methods: {
-			
+
 		}
 	}
 </script>

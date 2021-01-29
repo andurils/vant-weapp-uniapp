@@ -41,6 +41,15 @@
 				<view class="content-2">{{ '内容' + item }}</view>
 			</van-tab>
 		</van-tabs>
+		
+		<wrap title="粘性布局"></wrap>
+		<van-tabs sticky>
+			<van-tab v-for="(item, index) in tabs" :key="index" :title="'标签' + item">
+				<view class="content" style="min-height: 200rpx;">{{ '内容' + item }}</view>
+			</van-tab>
+		</van-tabs>
+		
+		
 
 		<wrap title="点击事件"></wrap>
 		<van-tabs @click="onClick">
@@ -70,77 +79,68 @@
 				<view class="content">{{ '内容' + item }}</view>
 			</van-tab>
 		</van-tabs>
+
+		<van-toast id="van-toast" />
 	</view>
 </template>
 
 <script>
-import Page from '../../common/page';
-import wrap from '@/components/wrap';
-export default {
-	components: {
-		wrap
-	},
-	data() {
-		return {
-			tabs: [1, 2, 3, 4],
-			tabsNames: ['a', 'b', 'c'],
-			tabsMore: [1, 2, 3, 4, 5, 6, 7, 8]
-		};
-	},
-	onLoad() {},
-	methods: {
-		onClickDisabled(event) {
-			wx.showToast({
-				title: `标签 ${event.detail.index + 1} 已被禁用`,
-				icon: 'none'
-			});
+	import Page from '../../common/page';
+	import wrap from '@/components/wrap';
+	import Toast from '@/wxcomponents/vant/toast/toast';
+	export default {
+		components: {
+			wrap
 		},
-
-		onChange(event) {
-			wx.showToast({
-				title: `切换到标签 ${event.detail.index + 1}`,
-				icon: 'none'
-			});
+		data() {
+			return {
+				tabs: [1, 2, 3, 4],
+				tabsNames: ['a', 'b', 'c'],
+				tabsMore: [1, 2, 3, 4, 5, 6, 7, 8]
+			};
 		},
+		onLoad() {},
+		methods: {
+			onClickDisabled(event) {
+				Toast(`标签 ${event.detail.index + 1} 已被禁用`);
+			},
 
-		onClickNavRight() {
-			wx.showToast({
-				title: '点击right nav',
-				icon: 'none'
-			});
-		},
+			onChange(event) {
+				Toast(`切换到标签 ${event.detail.index + 1}`);
+			},
 
-		onClick(event) {
-			wx.showToast({
-				title: `点击标签 ${event.detail.index + 1}`,
-				icon: 'none'
-			});
+			onClickNavRight() {
+				Toast('点击right nav');
+			},
+
+			onClick(event) {
+				Toast(`点击标签 ${event.detail.index + 1}`);
+			}
 		}
-	}
-};
+	};
 </script>
 
 <style>
-.content {
-	padding: 20px;
-	background-color: #fff;
-}
+	.content {
+		padding: 20px;
+		background-color: #fff;
+	}
 
-.content-2 {
-	padding: 20px;
-}
+	.content-2 {
+		padding: 20px;
+	}
 
-.right-nav {
-	padding: 0 10px;
-	line-height: 44px !important;
-}
+	.right-nav {
+		padding: 0 10px;
+		line-height: 44px !important;
+	}
 
-.tab-class {
-	transition: all 0.25s ease-in-out;
-}
+	.tab-class {
+		transition: all 0.25s ease-in-out;
+	}
 
-.tab-active-class {
-	font-size: 1.05em !important;
-	color: #1989fa !important;
-}
+	.tab-active-class {
+		font-size: 1.05em !important;
+		color: #1989fa !important;
+	}
 </style>

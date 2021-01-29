@@ -29,7 +29,7 @@ export default {
 	data() {
 		return {
 			list: list,
-			logoPath: require('../../statics/images/logo.png')
+			logoPath: require('../../static/logo.png')
 		};
 	},
 	onLoad() {},

@@ -92,7 +92,7 @@ export default {
 			fits1: ['none', 'scale-down', 'widthFix'],
 			fits2: ['heightFix'],
 			src: 'https://img.yzcdn.cn/vant/cat.jpeg',
-			sampleImgPath: require('../../statics/images/sample1.png')
+			sampleImgPath: require('../../static/sample1.png')
 		};
 	},
 	methods: {
