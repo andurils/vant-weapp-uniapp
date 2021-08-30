@@ -36,13 +36,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss"> 
 /*项目定义的样式文件*/
+@import 'common/style.scss'; 
 @import '@/wxcomponents/vant/common/index.wxss';
-@import 'common/style.css';
 
-/* 设置以下全局字体，以保证在不同设备上提供最佳的视觉体验 */
-page {
-	font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
-}
 </style>

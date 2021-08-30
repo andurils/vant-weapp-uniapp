@@ -1,0 +1,85 @@
+/* 设置以下全局字体，以保证在不同设备上提供最佳的视觉体验 */
+page {
+	
+	font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
+}
+
+/* 页面整体样式设置 */
+.app { 
+	background-color: #F8F8F8;
+	border-top: 1rpx solid #f5f4f7;
+	min-height: 100vh;
+	
+	.wrap-content {
+		margin-top: 12rpx; 
+		display: flex;
+		// flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。
+		flex-flow: row wrap;
+		margin-left: -8rpx;
+		margin-right: -8rpx;
+		
+		& .wrap-item { 
+			margin: 8rpx; 
+			// row-gap: 16px; 
+			// &:first-child{
+			// 	margin-left: 0 !important; 
+			// }
+		} 
+	}
+	
+	/* 垂直居中 */
+	.wrap-col-center {
+		align-items: center;
+	}
+	
+	/* 顶部对齐 */
+	.wrap-col-top {
+		align-items: flex-start;
+	}
+	
+	/* 底部对齐 */
+	.wrap-col-bottom {
+		align-items: flex-end;
+	}
+	
+	/* 左边对齐 */
+	.wrap-row-left {
+		justify-content: flex-start;
+	}
+	
+	/* 水平居中 */
+	.wrap-row-center {
+		justify-content: center;
+	}
+	
+	/* 右边对齐 */
+	.wrap-row-right {
+		justify-content: flex-end;
+	}
+	
+	/* 水平两端对齐，项目之间的间隔都相等 */
+	.wrap-row-between {
+		justify-content: space-between;
+	}
+	
+	/* 水平每个项目两侧的间隔相等，所以项目之间的间隔比项目与父元素两边的间隔大一倍 */
+	.wrap-row-around {
+		justify-content: space-around;
+	}
+}
+
+
+/* 示例元素间距 */
+.demo-margin-right {
+	margin-right: 24upx;
+}
+
+/* 占位行 */
+.clear-row {
+	min-height: 24upx;
+}
+
+/* 占位行 */
+.clear-blank {
+	min-height: 100upx;
+}

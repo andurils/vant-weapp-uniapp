@@ -47,7 +47,7 @@
     /* 快应用特有相关 */
     "mp-weixin" : {
         /* 小程序特有相关 */
-        "appid" : "",
+        "appid" : "wx41f79c76e1ede0c7",
         /*是否启用`自定义组件模式`，为true表示新的`自定义组件模式`，否则为`template模板模式`  */
         "usingComponents" : true,
         "setting" : {

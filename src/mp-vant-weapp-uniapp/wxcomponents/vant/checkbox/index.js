@@ -13,7 +13,10 @@ VantComponent({
     disabled: Boolean,
     useIconSlot: Boolean,
     checkedColor: String,
-    labelPosition: String,
+    labelPosition: {
+      type: String,
+      value: 'right',
+    },
     labelDisabled: Boolean,
     shape: {
       type: String,
@@ -26,6 +29,7 @@ VantComponent({
   },
   data: {
     parentDisabled: false,
+    direction: 'vertical',
   },
   methods: {
     emitChange(value) {

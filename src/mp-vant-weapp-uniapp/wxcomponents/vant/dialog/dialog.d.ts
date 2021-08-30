@@ -21,7 +21,7 @@ interface DialogOptions {
    * @deprecated use beforeClose instead
    */
   asyncClose?: boolean;
-  beforeClose?: null | (() => Promise<void> | void);
+  beforeClose?: null | ((action: Action) => Promise<void> | void);
   businessId?: number;
   sessionFrom?: string;
   overlayStyle?: string;
@@ -40,36 +40,14 @@ interface DialogOptions {
 }
 declare const Dialog: {
   (options: DialogOptions): Promise<
-    WechatMiniprogram.Component.Instance<
-      Record<string, any>,
-      Record<string, any>,
-      Record<string, any>,
-      Record<string, any>,
-      false
-    >
+    WechatMiniprogram.Component.TrivialInstance
   >;
   alert(
     options: DialogOptions
-  ): Promise<
-    WechatMiniprogram.Component.Instance<
-      Record<string, any>,
-      Record<string, any>,
-      Record<string, any>,
-      Record<string, any>,
-      false
-    >
-  >;
+  ): Promise<WechatMiniprogram.Component.TrivialInstance>;
   confirm(
     options: DialogOptions
-  ): Promise<
-    WechatMiniprogram.Component.Instance<
-      Record<string, any>,
-      Record<string, any>,
-      Record<string, any>,
-      Record<string, any>,
-      false
-    >
-  >;
+  ): Promise<WechatMiniprogram.Component.TrivialInstance>;
   close(): void;
   stopLoading(): void;
   currentOptions: DialogOptions;

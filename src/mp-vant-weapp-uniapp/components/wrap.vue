@@ -1,28 +1,29 @@
 <template>
-	<view class="wrap">
-		<view v-if="title" class="title">{{ title }}</view>
-		<slot />
+	<view class="wrap-demo">
+		<view v-if="title" class="wrap-title">{{ title }}</view>
+		<slot></slot>
 	</view>
 </template>
 <script>
-export default {
-	props: {
-		title: {
-			default: ''
+	export default {
+		name: "wrap",
+		props: {
+			title: {
+				default: ''
+			}
+		}
+	};
+</script>
+<style lang="scss" scoped>
+	.wrap-demo {
+		margin: 12rpx 32rpx;
+		padding: 12rpx 0;
+
+		.wrap-title {
+			font-weight: 500;
+			font-size: 28rpx;
+			line-height: 1.5;
+			color: rgba(69, 90, 100, 0.6);
 		}
 	}
-};
-</script>
-<style scoped>
-.title {
-	margin: 0;
-	font-weight: 400;
-	font-size: 14px;
-	color: rgba(69, 90, 100, 0.6);
-	padding: 24px 0 12px 0;
-}
-
-.wrap {
-	padding: 0 24px 12px 24px;
-}
 </style>

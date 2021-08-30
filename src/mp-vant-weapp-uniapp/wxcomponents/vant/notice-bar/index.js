@@ -5,11 +5,7 @@ VantComponent({
     text: {
       type: String,
       value: '',
-      observer() {
-        wx.nextTick(() => {
-          this.init();
-        });
-      },
+      observer: 'init',
     },
     mode: {
       type: String,
@@ -29,17 +25,10 @@ VantComponent({
     },
     speed: {
       type: Number,
-      value: 50,
-      observer() {
-        wx.nextTick(() => {
-          this.init();
-        });
-      },
+      value: 60,
+      observer: 'init',
     },
-    scrollable: {
-      type: Boolean,
-      value: true,
-    },
+    scrollable: null,
     leftIcon: {
       type: String,
       value: '',
@@ -61,34 +50,41 @@ VantComponent({
   destroyed() {
     this.timer && clearTimeout(this.timer);
   },
+  mounted() {
+    this.init();
+  },
   methods: {
     init() {
-      Promise.all([
-        getRect(this, '.van-notice-bar__content'),
-        getRect(this, '.van-notice-bar__wrap'),
-      ]).then((rects) => {
-        const [contentRect, wrapRect] = rects;
-        if (
-          contentRect == null ||
-          wrapRect == null ||
-          !contentRect.width ||
-          !wrapRect.width
-        ) {
-          return;
-        }
-        const { speed, scrollable, delay } = this.data;
-        if (scrollable || wrapRect.width < contentRect.width) {
-          const duration = (contentRect.width / speed) * 1000;
-          this.wrapWidth = wrapRect.width;
-          this.contentWidth = contentRect.width;
-          this.duration = duration;
-          this.animation = wx.createAnimation({
-            duration,
-            timingFunction: 'linear',
-            delay,
-          });
-          this.scroll();
-        }
+      requestAnimationFrame(() => {
+        Promise.all([
+          getRect(this, '.van-notice-bar__content'),
+          getRect(this, '.van-notice-bar__wrap'),
+        ]).then((rects) => {
+          const [contentRect, wrapRect] = rects;
+          const { speed, scrollable, delay } = this.data;
+          if (
+            contentRect == null ||
+            wrapRect == null ||
+            !contentRect.width ||
+            !wrapRect.width ||
+            scrollable === false
+          ) {
+            return;
+          }
+          if (scrollable || wrapRect.width < contentRect.width) {
+            const duration =
+              ((wrapRect.width + contentRect.width) / speed) * 1000;
+            this.wrapWidth = wrapRect.width;
+            this.contentWidth = contentRect.width;
+            this.duration = duration;
+            this.animation = wx.createAnimation({
+              duration,
+              timingFunction: 'linear',
+              delay,
+            });
+            this.scroll();
+          }
+        });
       });
     },
     scroll() {
