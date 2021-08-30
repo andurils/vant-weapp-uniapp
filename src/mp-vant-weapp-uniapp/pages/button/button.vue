@@ -1,38 +1,38 @@
 <template>
 	<view class="app">
 		<wrap title="按钮类型">
-			<view class="wrap-content">
+			<view class="wrap-content wrap-flex-wrap">
 				<van-button type="primary" class="wrap-item" @click="onClick">主要按钮</van-button>
 				<van-button type="info" class="wrap-item">信息按钮</van-button>
 				<van-button class="wrap-item">默认按钮</van-button>
-				<van-button type="danger" class="wrap-item">危险按钮</van-button>
-				<van-button type="warning" class="wrap-item">警告按钮</van-button>
+				<van-button type="danger" class="wrap-item">危险按钮 </van-button>
+				<van-button type="warning" class="wrap-item">警告按钮 </van-button>
 			</view>
 		</wrap>
 
 		<wrap title="朴素按钮">
-			<view class="wrap-content">
+			<view class="wrap-content wrap-flex-wrap">
 				<van-button type="primary" plain class="wrap-item">朴素按钮</van-button>
 				<van-button type="info" plain class="wrap-item">朴素按钮</van-button>
 			</view>
 		</wrap>
 
 		<wrap title="细边框" padding>
-			<view class="wrap-content">
+			<view class="wrap-content wrap-flex-wrap">
 				<van-button type="primary" plain hairline class="wrap-item">细边框按钮</van-button>
 				<van-button type="info" plain hairline class="wrap-item">细边框按钮</van-button>
 			</view>
 		</wrap>
 
 		<wrap title="禁用状态">
-			<view class="wrap-content">
+			<view class="wrap-content wrap-flex-wrap">
 				<van-button type="primary" disabled class="wrap-item" @click="onClick">禁用状态</van-button>
 				<van-button type="info" disabled class="wrap-item">禁用状态</van-button>
 			</view>
 		</wrap>
 
 		<wrap title="加载状态">
-			<view class="wrap-content">
+			<view class="wrap-content wrap-flex-wrap">
 				<van-button loading type="primary" class="wrap-item" />
 				<van-button loading loading-size="8px" type="primary" class="wrap-item" />
 				<van-button loading type="primary" loading-type="spinner" class="wrap-item" />
@@ -41,7 +41,7 @@
 		</wrap>
 
 		<wrap title="图标按钮">
-			<view class="wrap-content">
+			<view class="wrap-content wrap-flex-wrap">
 				<van-button icon="plus" type="primary" class="wrap-item" />
 				<van-button icon="plus" type="primary" class="wrap-item">按钮</van-button>
 				<van-button icon="friends" type="info" plain class="wrap-item">按钮</van-button>
@@ -51,7 +51,7 @@
 		</wrap>
 
 		<wrap title="按钮形状">
-			<view class="wrap-content">
+			<view class="wrap-content wrap-flex-wrap">
 				<van-button type="primary" square class="wrap-item">方形按钮</van-button>
 				<van-button type="info" round class="wrap-item">圆形按钮</van-button>
 			</view>
@@ -60,6 +60,7 @@
 		<wrap title="按钮尺寸">
 			<gap height="12"></gap>
 			<van-button type="primary" size="large" class="wrap-item">大号按钮</van-button>
+			<gap height="12"></gap>
 			<view class="wrap-content wrap-col-center">
 				<van-button type="primary" size="normal" class="wrap-item">普通按钮</van-button>
 				<van-button type="primary" size="small" class="wrap-item">小型按钮</van-button>
@@ -73,7 +74,7 @@
 		</wrap>
 
 		<wrap title="自定义颜色">
-			<view class="wrap-content">
+			<view class="wrap-content wrap-flex-wrap">
 				<van-button color="#7232dd" class="wrap-item">单色按钮</van-button>
 				<van-button color="#7232dd" plain class="wrap-item">单色按钮</van-button>
 				<van-button color="linear-gradient(to right, rgb(255, 96, 52, 0.8), rgb(238, 10, 36, 1))"
@@ -83,7 +84,7 @@
 		</wrap>
 
 		<wrap title="自定义样式">
-			<view class="wrap-content">
+			<view class="wrap-content wrap-flex-wrap">
 				<van-button plain color="rgba(255, 59, 48, 1)" class="wrap-item"
 					custom-style="width:200rpx;height:60rpx;border-radius:30rpx;font-size:28rpx;padding:0;">
 					自定义样式
@@ -95,8 +96,8 @@
 
 		</wrap>
 
-		<wrap title="高级示例 open-type/share">
-			<view class="wrap-content">
+		<wrap title="open-type/share">
+			<view class="wrap-content wrap-flex-wrap">
 				<!-- #ifdef MP-WEIXIN -->
 				<van-button type="info" icon="good-job-o" open-type="share" class="wrap-item" :dataset="buttonInfo">
 					用户转发</van-button>
@@ -104,8 +105,8 @@
 			</view>
 		</wrap>
 
-		<wrap title="高级示例 open-type/getUserInfo">
-			<view class="wrap-content">
+		<wrap title="open-type/getUserInfo">
+			<view class="wrap-content wrap-flex-wrap">
 
 				<!-- #ifdef MP-WEIXIN -->
 				<van-button type="primary" icon="wechat" open-type="getUserInfo" @getuserinfo="getUserInfo"
@@ -116,8 +117,8 @@
 			</view>
 		</wrap>
 
-		<wrap title="高级示例 open-type/getPhoneNumber">
-			<view class="wrap-content">
+		<wrap title="open-type/getPhoneNumber">
+			<view class="wrap-content wrap-flex-wrap">
 
 
 				<!-- #ifdef MP-WEIXIN -->
@@ -128,8 +129,8 @@
 			</view>
 		</wrap>
 
-		<wrap title="高级示例 open-type/openSetting">
-			<view class="wrap-content">
+		<wrap title="open-type/openSetting">
+			<view class="wrap-content wrap-flex-wrap">
 				<!-- #ifdef MP-WEIXIN -->
 				<van-button type="info" plain icon="setting-o" open-type="openSetting" @opensetting="getOpenSetting"
 					class="wrap-item">
@@ -139,8 +140,8 @@
 			</view>
 		</wrap>
 
-		<wrap title="高级示例 open-type/contact">
-			<view class="wrap-content">
+		<wrap title="open-type/contact">
+			<view class="wrap-content wrap-flex-wrap">
 				<!-- #ifdef MP-WEIXIN -->
 				<van-button type="info" plain icon="service-o" class="wrap-item" open-type="contact"
 					@contact="getContact">客服会话</van-button>

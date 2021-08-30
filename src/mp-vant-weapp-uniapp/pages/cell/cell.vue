@@ -3,24 +3,37 @@
 		<wrap title="基础用法"></wrap>
 		<view>
 			<van-cell-group>
-				<van-cell title="单元格" value="内容" required="true" clickable="true" />
-				<van-cell title="单元格" value="内容" label="描述信息" border="true" />
+				<van-cell title="单元格" value="内容" :required="true" :clickable="true" />
+				<van-cell title="单元格" value="内容" label="描述信息" :clickable="true" />
 			</van-cell-group>
 		</view>
+
+		<wrap title="卡片风格">
+			<view class="wrap-content">
+				<van-cell-group inset>
+					<van-cell title="单元格" value="内容" />
+					<van-cell title="单元格" value="内容" label="描述信息" />
+				</van-cell-group>
+			</view>
+		</wrap>
 
 		<wrap title="单元格大小"></wrap>
 		<view>
 			<van-cell-group>
-				<van-cell title="单元格" value="内容" size="large" />
-				<van-cell title="单元格" value="内容" label="描述信息" size="large" :border="false" />
+				<van-cell title="单元格(不显示下边框)" value="内容" size="large" :border="false" />
+				<van-cell title="单元格" value="内容" label="描述信息" size="large" />
 			</van-cell-group>
 		</view>
 
 		<wrap title="展示图标"></wrap>
-		<view><van-cell title="单元格" icon="location-o" /></view>
+		<view>
+			<van-cell title="单元格" icon="location-o" />
+		</view>
 
 		<wrap title="只设置 value"></wrap>
-		<view><van-cell title="内容" /></view>
+		<view>
+			<van-cell title="内容" />
+		</view>
 
 		<wrap title="展示箭头"></wrap>
 		<view>
@@ -41,8 +54,12 @@
 
 		<wrap title="分组标题"></wrap>
 		<view>
-			<van-cell-group title="分组1"><van-cell title="单元格" value="内容" /></van-cell-group>
-			<van-cell-group title="分组2"><van-cell title="单元格" value="内容" /></van-cell-group>
+			<van-cell-group title="分组1">
+				<van-cell title="单元格" value="内容" />
+			</van-cell-group>
+			<van-cell-group title="分组2">
+				<van-cell title="单元格" value="内容" />
+			</van-cell-group>
 		</view>
 
 		<wrap title="使用插槽"></wrap>
@@ -53,53 +70,60 @@
 					<van-tag type="danger">标签</van-tag>
 				</view>
 			</van-cell>
-			<van-cell title="单元格" value="内容" icon="location-o" use-label-slot="false"><view slot="label">自定义描述</view></van-cell>
-			<van-cell title="单元格" icon="location-o"><van-icon slot="right-icon" name="search" /></van-cell>
+			<van-cell title="单元格" label="自定义描述(使用label)" value="内容" icon="location-o" :use-label-slot="false">
+				<view slot="label">自定义描述</view>
+			</van-cell>
+			<van-cell title="单元格"  value="内容" icon="location-o" :use-label-slot="true">
+				<view slot="label">自定义描述(使用插槽)</view>
+			</van-cell>
+			<van-cell title="单元格" icon="location-o">
+				<van-icon slot="right-icon" name="search" />
+			</van-cell>
 		</view>
 
 		<wrap title="垂直居中"></wrap>
-		<view><van-cell center title="单元格" value="内容" label="描述信息" /></view>
+		<view>
+			<van-cell center title="单元格" value="内容" label="描述信息" />
+		</view>
 
 		<wrap title="自定义样式"></wrap>
 		<view>
 			<van-cell-group custom-class="cus-cellgroup">
-				<van-cell title="单元格" value="内容" label="描述信息" :border="false" title-class="cus-title" label-class="cus-label" value-class="cus-value" />
+				<van-cell title="单元格" value="内容" label="描述信息" :border="false" title-class="cus-title"
+					label-class="cus-label" value-class="cus-value" />
 			</van-cell-group>
 		</view>
-		<view class="clear-blank"></view>
+		<gap height="200"></gap>
 	</view>
 </template>
 
 <script>
-import Page from '../../common/page';
-import wrap from '@/components/wrap';
-
-export default {
-	components: {
-		wrap
-	},
-	data() {
-		return {};
-	},
-	onLoad() {},
-	methods: {}
-};
+	export default {
+		data() {
+			return {};
+		},
+		onLoad() {},
+		methods: {},
+	};
 </script>
 
 <style lang="scss">
-.cus-cellgroup {
-	padding: 10rpx;
-	border: $uni-color-primary 4rpx solid !important;
-	background-color: #990055;
-}
-.cus-title {
-	color: $uni-color-error !important;
-	background-color: $uni-color-primary !important;
-}
-.cus-label {
-	background-color: $uni-color-warning !important;
-}
-.cus-value {
-	background-color: $uni-color-success !important;
-}
+	.cus-cellgroup {
+		padding: 10rpx;
+		border: $uni-color-primary 4rpx solid !important;
+		background-color: #990055;
+	}
+
+	.cus-title {
+		color: $uni-color-error !important;
+		background-color: $uni-color-primary !important;
+	}
+
+	.cus-label {
+		background-color: $uni-color-warning !important;
+	}
+
+	.cus-value {
+		background-color: $uni-color-success !important;
+	}
 </style>

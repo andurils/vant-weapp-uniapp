@@ -11,10 +11,7 @@ page {
 	min-height: 100vh;
 	
 	.wrap-content {
-		margin-top: 12rpx; 
-		display: flex;
-		// flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。
-		flex-flow: row wrap;
+		margin-top: 12rpx;  
 		margin-left: -8rpx;
 		margin-right: -8rpx;
 		
@@ -25,6 +22,24 @@ page {
 			// 	margin-left: 0 !important; 
 			// }
 		} 
+	}
+	
+ 
+	.wrap-flex-wrap {
+		display: flex;
+		// flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。
+		flex-flow: row wrap;
+		align-items: center;
+	}
+	
+	.wrap-flex {
+		display: flex;
+		flex-direction: row; 
+	}
+	
+	.wrap-flex-col { 
+		display: flex; 
+		flex-direction: column;
 	}
 	
 	/* 垂直居中 */

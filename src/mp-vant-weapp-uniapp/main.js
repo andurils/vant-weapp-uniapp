@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import App from './App'
 import share from '@/common/mpShare.js'
+
 import wrap from '@/components/wrap.vue';
 import gap from '@/components/gap.vue';
+
 import Dialog from '@/wxcomponents/vant/dialog/dialog';
 import Toast from '@/wxcomponents/vant/toast/toast';
 import Notify from '@/wxcomponents/vant/notify/notify';

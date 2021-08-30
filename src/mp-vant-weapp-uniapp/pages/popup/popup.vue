@@ -1,11 +1,13 @@
 <template>
 	<view class="app">
 		<wrap title="基础用法">
+			<gap height="24"></gap>
 			<van-cell title="展示弹出层" is-link @click="showBasic" />
 			<van-popup :show="show.basic" custom-style="padding: 30px 50px" overlay-style="background-color:rgba(0,0,0,.2)" @close="hideBasic">内容</van-popup>
 		</wrap>
 
 		<wrap title="弹出位置">
+			<gap height="24"></gap>
 			<van-cell title="顶部弹出" is-link @click="showTop" />
 			<van-cell title="底部弹出" is-link @click="showBottom" />
 			<van-cell title="左侧弹出" is-link @click="showLeft" />
@@ -18,6 +20,7 @@
 		</wrap>
 
 		<wrap title="关闭图标">
+			<gap height="24"></gap>
 			<van-cell title="关闭图标" is-link @click="showCloseIcon" />
 			<van-cell title="自定义图标" is-link @click="showCustomCloseIcon" />
 			<van-cell title="图标位置" is-link @click="showCustomIconPosition" />
@@ -30,6 +33,7 @@
 		</wrap>
 
 		<wrap title="圆角弹窗">
+			<gap height="24"></gap>
 			<van-cell title="圆角弹窗" is-link @click="showRound" />
 
 			<van-popup :show="show.round" round position="bottom" custom-style="height: 20%" @close="hideRound" />

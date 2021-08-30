@@ -29,3 +29,5 @@ unpackage
 
 # uniapp idea hbuilder
 .hbuilderx
+
+package-lock.json
