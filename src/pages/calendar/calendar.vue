@@ -1,42 +1,51 @@
 <template>
 	<view class="app">
-		<wrap title="基础用法"></wrap>
-		<van-cell is-link title="选择单个日期" data-type="single" data-id="selectSingle"
-			:value="formatFullDate(date.selectSingle)" @click="show" />
-		<van-cell is-link title="选择多个日期" data-type="multiple" data-id="selectMultiple"
-			:value="formatMultiple(date.selectMultiple)" @click="show" />
-		<van-cell is-link title="选择日期区间" data-type="range" data-id="selectRange" :value="formatRange(date.selectRange)"
-			@click="show" />
+		<wrap title="基础用法">
+			<gap height="24"></gap>
+			<van-cell is-link title="选择单个日期" data-type="single" data-id="selectSingle"
+				:value="formatFullDate(date.selectSingle)" @click="show" />
+			<van-cell is-link title="选择多个日期" data-type="multiple" data-id="selectMultiple"
+				:value="formatMultiple(date.selectMultiple)" @click="show" />
+			<van-cell is-link title="选择日期区间" data-type="range" data-id="selectRange"
+				:value="formatRange(date.selectRange)" @click="show" />
+		</wrap>
 
-		<wrap title="快捷选择"></wrap>
-		<van-cell is-link title="选择单个日期" data-type="single" data-id="quickSelect1"
-			:value="formatFullDate(date.quickSelect1)" @click="show" />
+		<wrap title="快捷选择">
+			<gap height="24"></gap>
+			<van-cell is-link title="选择单个日期" data-type="single" data-id="quickSelect1"
+				:value="formatFullDate(date.quickSelect1)" @click="show" />
 
-		<van-cell is-link title="选择日期区间" data-type="range" data-id="quickSelect2"
-			:value="formatRange(date.quickSelect2)" @click="show" />
+			<van-cell is-link title="选择日期区间" data-type="range" data-id="quickSelect2"
+				:value="formatRange(date.quickSelect2)" @click="show" />
+		</wrap>
 
-		<wrap title="自定义日历"></wrap>
-		<van-cell is-link title="自定义颜色" data-type="range" data-id="customColor" :value="formatRange(date.customColor)"
-			@click="show" />
+		<wrap title="自定义日历">
+			<gap height="24"></gap>
+			<van-cell is-link title="自定义颜色" data-type="range" data-id="customColor"
+				:value="formatRange(date.customColor)" @click="show" />
 
-		<van-cell is-link title="自定义日期范围" data-type="single" data-id="customRange"
-			:value="formatFullDate(date.customRange)" @click="show" />
+			<van-cell is-link title="自定义日期范围" data-type="single" data-id="customRange"
+				:value="formatFullDate(date.customRange)" @click="show" />
 
-		<van-cell is-link title="自定义按钮文字" data-type="range" data-id="customConfirm"
-			:value="formatRange(date.customConfirm)" @click="show" />
+			<van-cell is-link title="自定义按钮文字" data-type="range" data-id="customConfirm"
+				:value="formatRange(date.customConfirm)" @click="show" />
 
-		<van-cell is-link title="自定义日期文案" data-type="range" data-id="customDayText"
-			:value="formatRange(date.customDayText)" @click="onShow1" />
+			<van-cell is-link title="自定义日期文案" data-type="range" data-id="customDayText"
+				:value="formatRange(date.customDayText)" @click="onShow1" />
 
-		<van-cell is-link title="自定义弹出位置" data-type="single" data-id="customPosition"
-			:value="formatFullDate(date.customPosition)" @click="show" />
+			<van-cell is-link title="自定义弹出位置" data-type="single" data-id="customPosition"
+				:value="formatFullDate(date.customPosition)" @click="show" />
 
-		<van-cell is-link title="日期区间最大范围" data-type="range" data-id="maxRange" :value="formatRange(date.maxRange)"
-			@click="show" />
+			<van-cell is-link title="日期区间最大范围" data-type="range" data-id="maxRange" :value="formatRange(date.maxRange)"
+				@click="show" />
+		</wrap>
 
-		<wrap title="平铺展示"></wrap>
-		<van-calendar title="日历" :poppable="false" :show-confirm="false" :min-date="tiledMinDate"
-			:max-date="tiledMaxDate" class="tiled-calendar" @select="onSelect1" />
+		<wrap title="平铺展示">
+			<gap height="24"></gap>
+			<van-calendar title="日历" :poppable="false" :show-confirm="false" :min-date="tiledMinDate"
+				:max-date="tiledMaxDate" class="tiled-calendar" @select="onSelect1" />
+		</wrap>
+
 
 		<van-calendar :show="showCalendar" :type="type" :color="color" :round="round" :position="position"
 			:min-date="minDate" :max-date="maxDate" :max-range="maxRange" :formatter="formatter"
@@ -44,6 +53,7 @@
 			@confirm="onConfirm" @select="onSelect" @unselect="onUnselect" @open="onOpen" @opened="onOpened"
 			@close="onClose" @closed="onClosed"></van-calendar>
 
+		<!-- 自定义日期文案 -->
 		<van-calendar :show="showCalendarF" type="range" :min-date="minDate" :max-date="maxDate"
 			:formatter="dayFormatter" @confirm="onConfirm1" @close="onClose1" />
 
@@ -53,14 +63,7 @@
 </template>
 
 <script>
-	import Page from '../../common/page';
-	import wrap from '@/components/wrap';
-	import Toast from '@/wxcomponents/vant/toast/toast';
-
 	export default {
-		components: {
-			wrap
-		},
 		data() {
 			return {
 				date: {
@@ -121,7 +124,7 @@
 			},
 			onSelect1(event) {
 				// console.log(event.detail);
-				Toast.success(event.detail.toLocaleString());
+				this.$toast.success(event.detail.toLocaleString());
 				// this.$toast(event.detail.toLocaleString());
 			},
 			onUnselect(event) {

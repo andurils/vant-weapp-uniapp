@@ -9,6 +9,12 @@ import Dialog from '@/wxcomponents/vant/dialog/dialog';
 import Toast from '@/wxcomponents/vant/toast/toast';
 import Notify from '@/wxcomponents/vant/notify/notify';
 
+import dayJs from "dayjs";
+import "dayjs/locale/zh-cn";
+dayJs.locale("zh-cn");
+import relativeTime from "dayjs/plugin/relativeTime";
+dayJs.extend(relativeTime);
+
 
 
 
@@ -25,7 +31,12 @@ Vue.mixin(share)
 // 注册实例 全局方法
 Vue.prototype.$dialog = Dialog;
 Vue.prototype.$toast = Toast;
-Vue.prototype.$notify = Notify;
+Vue.prototype.$notify = Notify; 
+Vue.prototype.$dayjs = dayJs;
+// 时间过滤器
+Vue.filter("filterTime", (value) => {
+  return dayJs().to(value);
+});
 
 const app = new Vue({
 	...App

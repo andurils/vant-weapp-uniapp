@@ -44,6 +44,19 @@
 
 			<van-popup :show="show.round" round position="bottom" custom-style="height: 20%" @close="toggle('round')" />
 		</wrap>
+
+		<wrap title="事件/自定义样式">
+			<gap height="24"></gap>
+			<van-cell title="事件/自定义样式" is-link @click="toggle('cusEvent')" />
+
+			<van-popup :show="show.cusEvent" closeable close-icon="close" position="bottom" custom-style="height: 20%"
+			 custom-class='cus-root' @close="onClose" @click-overlay="onClickOverlay"
+				@before-enter="onBeforeEnter" @enter="onEnter" @after-enter="onAfterEnter" @before-leave="onBeforeLeave"
+				@leave="onLeave" @after-leave="onAfterLeave">
+				<van-icon name="friends" />
+				<text>内容</text>
+			</van-popup>
+		</wrap>
 		<view class="clear-blank"></view>
 	</view>
 </template>
@@ -61,7 +74,8 @@
 					round: false,
 					closeIcon: false,
 					customCloseIcon: false,
-					customIconPosition: false
+					customIconPosition: false,
+					cusEvent: false
 				}
 			};
 		},
@@ -71,6 +85,31 @@
 				this.show[type] = !this.show[type];
 				// this.show[type] = showState;
 			},
+			onClose(event) {
+				this.show['cusEvent'] = !this.show['cusEvent'];
+				console.log('close', event);
+			},
+			onClickOverlay(event) {
+				console.log('click-overlay', event);
+			},
+			onBeforeEnter(event) {
+				console.log('before-enter', event);
+			},
+			onEnter(event) {
+				console.log('close', event);
+			},
+			onAfterEnter(event) {
+				console.log('after-enter', event);
+			},
+			onBeforeLeave(event) {
+				console.log('before-leave', event);
+			},
+			onLeave(event) {
+				console.log('leave', event);
+			},
+			onAfterLeave(event) {
+				console.log('after-leave', event);
+			} 
 		},
 		components: {}
 	};
@@ -104,5 +143,16 @@
 		width: 100%;
 		height: 100%;
 		padding: 20px;
+	}
+
+	.cus-root {
+		padding: 48rpx;
+		background-color: #c8c9cc !important;
+		border: #f29100 8rpx solid !important;
+		color: #f29100;
+		font-size: 48rpx;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 </style>

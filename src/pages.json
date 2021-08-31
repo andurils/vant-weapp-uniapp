@@ -497,7 +497,7 @@
 				"pagePath": "pages/dashboard/tool",
 				"iconPath": "static/img/tabbar/tool.png",
 				"selectedIconPath": "static/img/tabbar/toolactive.png",
-				"text": "工具"
+				"text": "配置"
 			},
 			{
 				"pagePath": "pages/dashboard/tml",
