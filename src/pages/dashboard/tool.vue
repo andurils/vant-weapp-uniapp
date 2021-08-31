@@ -15,7 +15,8 @@
 
  <!-- 工具页面
 		ConfigProvider 全局配置
-		自定义图标 -->
+		自定义图标 
+		内置样式 -->
 
  <script>
  	import list from '../../config'; 

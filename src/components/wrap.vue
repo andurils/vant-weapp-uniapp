@@ -1,7 +1,9 @@
 <template>
 	<view class="wrap-demo">
 		<view v-if="title" class="wrap-title">{{ title }}</view>
-		<slot></slot>
+		<view v-if="$slots.default">
+			<slot></slot>
+		</view>
 	</view>
 </template>
 <script>

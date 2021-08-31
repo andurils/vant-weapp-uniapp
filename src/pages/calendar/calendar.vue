@@ -1,5 +1,31 @@
 <template>
 	<view class="app">
+		<van-calendar :show="showCalendar" :type="type" :color="color" :round="round" :position="position"
+			:first-day-of-week="firstDayWeek" :allow-same-day="isAllowSameDay" :min-date="minDate" :max-date="maxDate"
+			:max-range="maxRange" :formatter="formatter" :show-confirm="showConfirm" :confirm-text="confirmText"
+			:confirm-disabled-text="confirmDisabledText" @confirm="onConfirm" @select="onSelect" @unselect="onUnselect"
+			@open="onOpen" @opened="onOpened" @close="onClose" @closed="onClosed" @over-range="onOverRange"
+			@click-subtitle="onClickSubtitle">
+		</van-calendar>
+
+		<wrap title="组件参数">
+			<gap height="24"></gap>
+			<van-cell-group>
+				<van-cell :title="isAllowSameDay?'起止相同':'起止不同'" center>
+					<van-switch :checked="isAllowSameDay" @change="onAllowSameDayChange" size="24px" />
+				</van-cell>
+			</van-cell-group>
+
+			<wrap :title="'周起始日:星期'+ weekDayCN[firstDayWeek]">
+				<gap height="24"></gap>
+				<van-slider :value="firstDayWeek" min="0" max="6" @drag="onFirstDayWeekChange" bar-height="4px"
+					active-color="#ee0a24" />
+			</wrap>
+
+		</wrap>
+
+
+
 		<wrap title="基础用法">
 			<gap height="24"></gap>
 			<van-cell is-link title="选择单个日期" data-type="single" data-id="selectSingle"
@@ -47,15 +73,12 @@
 		</wrap>
 
 
-		<van-calendar :show="showCalendar" :type="type" :color="color" :round="round" :position="position"
-			:min-date="minDate" :max-date="maxDate" :max-range="maxRange" :formatter="formatter"
-			:show-confirm="showConfirm" :confirm-text="confirmText" :confirm-disabled-text="confirmDisabledText"
-			@confirm="onConfirm" @select="onSelect" @unselect="onUnselect" @open="onOpen" @opened="onOpened"
-			@close="onClose" @closed="onClosed"></van-calendar>
+
+
 
 		<!-- 自定义日期文案 -->
 		<van-calendar :show="showCalendarF" type="range" :min-date="minDate" :max-date="maxDate"
-			:formatter="dayFormatter" @confirm="onConfirm1" @close="onClose1" />
+			:allow-same-day="isAllowSameDay" :formatter="dayFormatter" @confirm="onConfirm1" @close="onClose1" />
 
 		<van-toast id="van-toast" />
 		<van-dialog id="van-dialog" />
@@ -79,28 +102,39 @@
 					customDayText: [],
 					customPosition: null
 				},
+				isAllowSameDay: false, //是否允许日期范围的起止时间为同一天
+				firstDayWeek: 0,
 				type: 'single',
 				round: true,
 				color: undefined,
-				minDate: Date.now(),
-				maxDate: new Date(new Date().getFullYear(), new Date().getMonth() + 6, new Date().getDate()).getTime(),
+				minDate: this.$dayjs().valueOf(),
+				maxDate: this.$dayjs().add(6, 'month').valueOf(),
 				maxRange: undefined,
 				position: undefined,
 				formatter: undefined,
 				showConfirm: false,
 				showCalendar: false,
-				tiledMinDate: new Date(2012, 0, 10).getTime(),
-				tiledMaxDate: new Date(2012, 2, 20).getTime(),
+				tiledMinDate: this.$dayjs('2012-01-10').valueOf(), // Unix 时间戳 (毫秒)
+				tiledMaxDate: this.$dayjs('2012-01-28').valueOf(),
 				confirmText: undefined,
 				confirmDisabledText: undefined,
-				showCalendarF: false
+				showCalendarF: false,
+				weekDayCN: ['日', '一', '二', '三', '四', '五', '六', ]
 			};
 		},
 		methods: {
+			// config 
+			onAllowSameDayChange(event) {
+				this.isAllowSameDay = !this.isAllowSameDay;
+			},
+			onFirstDayWeekChange(event) {
+				console.log(event.detail.value)
+				this.firstDayWeek = event.detail.value;
+			},
 			// 自定义日期文案 开始
 			onShow1(event) {
-				this.minDate = new Date(2010, 4, 1).getTime();
-				this.maxDate = new Date(2010, 4, 31).getTime();
+				this.minDate = this.$dayjs('2012-05-01').valueOf();
+				this.maxDate = this.$dayjs('2012-05-31').valueOf();
 				this.showCalendarF = true;
 			},
 			onConfirm1(event) {
@@ -113,47 +147,63 @@
 			},
 			//自定义日期文案  结束
 
+
+
+			onSelect1(event) {
+				this.$toast.success(this.$dayjs(event.detail).format("YYYY-MM-DD"));
+			},
+
+
+
+
+			// event start
+			// 点击任意日期时触发
+			onSelect(event) {
+				console.log('select', event);
+			},
+			// 当 Canlendar 的 type 为 multiple 时,点击已选中的日期时触发
+			onUnselect(event) {
+				console.log('unselect', event);
+			},
+			// 日期选择完成后触发，若show-confirm为true，则点击确认按钮后触发
 			onConfirm(event) {
-				console.log(event);
+				console.log('confirm', event);
 				this.showCalendar = false;
 				this.date[this.id] = event.detail;
 			},
-
-			onSelect(event) {
-				console.log(event);
-			},
-			onSelect1(event) {
-				// console.log(event.detail);
-				this.$toast.success(event.detail.toLocaleString());
-				// this.$toast(event.detail.toLocaleString());
-			},
-			onUnselect(event) {
-				console.log(event);
-			},
-
-			onClose() {
+			// 关闭弹出层时触发
+			onClose(event) {
+				console.log('close', event);
 				this.showCalendar = false;
 			},
-
-			onOpen() {
-				console.log('open');
+			// 打开弹出层时触发
+			onOpen(event) {
+				console.log('open', event);
 			},
-
-			onOpened() {
-				console.log('opened');
+			// 打开弹出层且动画结束后触发
+			onOpened(event) {
+				console.log('opened', event);
 			},
-
-			onClosed() {
-				console.log('closed');
+			// 关闭弹出层时触发
+			onClosed(event) {
+				console.log('closed', event);
 			},
+			// 范围选择超过最多可选天数时触发
+			onOverRange(event) {
+				console.log('over-range', event);
+			},
+			// 点击日历副标题时触发
+			onClickSubtitle(event) {
+				console.log('click-subtitle', event);
+			},
+			// event end
 
 			resetSettings() {
 				const pageData = {
 					round: true,
 					color: null,
-					minDate: Date.now(),
-					maxDate: new Date(new Date().getFullYear(), new Date().getMonth() + 6, new Date().getDate())
-						.getTime(),
+					minDate: this.$dayjs().valueOf(),
+					maxDate: this.$dayjs().add(6, 'month').valueOf(),
 					maxRange: null,
 					position: 'bottom',
 					formatter: null,
@@ -189,12 +239,12 @@
 						data.confirmDisabledText = '请选择结束时间';
 						break;
 					case 'customRange':
-						data.minDate = new Date(2010, 0, 1).getTime();
-						data.maxDate = new Date(2010, 0, 31).getTime();
+						data.minDate = this.$dayjs('2010-01-01').valueOf();
+						data.maxDate = this.$dayjs('2010-01-31').valueOf();
 						break;
 					case 'customDayText':
-						data.minDate = new Date(2010, 4, 1).getTime();
-						data.maxDate = new Date(2010, 4, 31).getTime();
+						data.minDate = this.$dayjs('2010-05-01').valueOf();
+						data.maxDate = this.$dayjs('2010-05-31').valueOf();
 						data.formatter = this.dayFormatter;
 						break;
 					case 'customPosition':
@@ -231,30 +281,30 @@
 				return day;
 			},
 			formatDate(date) {
-				// console.log(this.date)
+				// console.log('formatDate', date)
 				if (date) {
-					// date = date.getDate();
-					date = new Date(date);
-					return date.getMonth() + 1 + '/' + date.getDate();
+					return this.$dayjs(date).format('MM/DD');
 				}
 			},
 			formatFullDate(date) {
+				// console.log('formatFullDate', date)
 				if (date) {
-					date = new Date(date);
-					return date.getFullYear() + '/' + this.formatDate(date);
+					// "YYYY-MM-DD HH:mm:ss"
+					return this.$dayjs(date).format('YYYY/MM/DD');
 				}
 			},
-
+			formatRange(dateRange) {
+				// console.log('formatRange', dateRange)
+				if (dateRange.length) {
+					return this.formatDate(dateRange[0]) + ' - ' + this.formatDate(dateRange[1]);
+				}
+			},
 			formatMultiple(dates) {
 				if (dates.length) {
 					return '选择了 ' + dates.length + '个日期';
 				}
 			},
-			formatRange(dateRange) {
-				if (dateRange.length) {
-					return this.formatDate(dateRange[0]) + ' - ' + this.formatDate(dateRange[1]);
-				}
-			}
+
 		}
 	};
 </script>
