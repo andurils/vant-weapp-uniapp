@@ -71,7 +71,7 @@
 			<van-calendar title="日历" :poppable="false" :show-confirm="false" :min-date="tiledMinDate"
 				:max-date="tiledMaxDate" class="tiled-calendar" @select="onSelect1" />
 		</wrap>
-
+		<gap height="200"></gap>
 
 
 

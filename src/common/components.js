@@ -228,5 +228,12 @@ export default [{
 				title: 'GoodsAction 商品导航'
 			}
 		]
+	},
+	{
+		groupName: '废弃',
+		list: [{
+			path: '/panel',
+			title: 'Panel 面板'
+		}]
 	}
 ];

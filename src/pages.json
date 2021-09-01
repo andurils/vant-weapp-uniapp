@@ -68,7 +68,7 @@
 		{
 			"path": "pages/transition/transition",
 			"style": {
-				"navigationBarTitleText": "transition 动画",
+				"navigationBarTitleText": "Transition 动画",
 				"navigationStyle": "default"
 			}
 		},
@@ -77,14 +77,14 @@
 		{
 			"path": "pages/calendar/calendar",
 			"style": {
-				"navigationBarTitleText": "calendar 日历",
+				"navigationBarTitleText": "Calendar 日历",
 				"navigationStyle": "default"
 			}
 		},
 		{
 			"path": "pages/checkbox/checkbox",
 			"style": {
-				"navigationBarTitleText": "checkbox",
+				"navigationBarTitleText": "Checkbox 复选框",
 				"navigationStyle": "default"
 			}
 		},
