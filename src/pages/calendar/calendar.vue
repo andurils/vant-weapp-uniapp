@@ -1,11 +1,11 @@
 <template>
 	<view class="app">
-		<van-calendar :show="showCalendar" :type="type" :color="color" :round="round" :position="position"
-			:first-day-of-week="firstDayWeek" :allow-same-day="isAllowSameDay" :min-date="minDate" :max-date="maxDate"
-			:max-range="maxRange" :formatter="formatter" :show-confirm="showConfirm" :confirm-text="confirmText"
-			:confirm-disabled-text="confirmDisabledText" @confirm="onConfirm" @select="onSelect" @unselect="onUnselect"
-			@open="onOpen" @opened="onOpened" @close="onClose" @closed="onClosed" @over-range="onOverRange"
-			@click-subtitle="onClickSubtitle">
+		<van-calendar :show="showCalendar" :show-subtitle="isShowSubtitle" :type="type" :color="color" :round="round"
+			:position="position" :first-day-of-week="firstDayWeek" :allow-same-day="isAllowSameDay" :min-date="minDate"
+			:max-date="maxDate" :max-range="maxRange" :formatter="formatter" :show-confirm="showConfirm"
+			:confirm-text="confirmText" :confirm-disabled-text="confirmDisabledText" @confirm="onConfirm"
+			@select="onSelect" @unselect="onUnselect" @open="onOpen" @opened="onOpened" @close="onClose"
+			@closed="onClosed" @over-range="onOverRange" @click-subtitle="onClickSubtitle">
 		</van-calendar>
 
 		<wrap title="组件参数">
@@ -14,7 +14,13 @@
 				<van-cell :title="isAllowSameDay?'起止相同':'起止不同'" center>
 					<van-switch :checked="isAllowSameDay" @change="onAllowSameDayChange" size="24px" />
 				</van-cell>
+				<van-cell :title="isShowSubtitle?'展示日历副标题（年月）':'不展示日历副标题（年月）'" center>
+					<van-switch :checked="isShowSubtitle" @change="onShowSubtitleChange" size="24px" />
+				</van-cell>
 			</van-cell-group>
+
+
+
 
 			<wrap :title="'周起始日:星期'+ weekDayCN[firstDayWeek]">
 				<gap height="24"></gap>
@@ -103,6 +109,7 @@
 					customPosition: null
 				},
 				isAllowSameDay: false, //是否允许日期范围的起止时间为同一天
+				isShowSubtitle: true,
 				firstDayWeek: 0,
 				type: 'single',
 				round: true,
@@ -115,7 +122,7 @@
 				showConfirm: false,
 				showCalendar: false,
 				tiledMinDate: this.$dayjs('2012-01-10').valueOf(), // Unix 时间戳 (毫秒)
-				tiledMaxDate: this.$dayjs('2012-01-28').valueOf(),
+				tiledMaxDate: this.$dayjs('2012-03-28').valueOf(),
 				confirmText: undefined,
 				confirmDisabledText: undefined,
 				showCalendarF: false,
@@ -127,6 +134,10 @@
 			onAllowSameDayChange(event) {
 				this.isAllowSameDay = !this.isAllowSameDay;
 			},
+			onShowSubtitleChange(event) {
+				this.isShowSubtitle = !this.isShowSubtitle;
+			},
+
 			onFirstDayWeekChange(event) {
 				console.log(event.detail.value)
 				this.firstDayWeek = event.detail.value;
