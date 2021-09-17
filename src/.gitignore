@@ -31,3 +31,4 @@ unpackage
 .hbuilderx
 
 package-lock.json
+yarn.lock

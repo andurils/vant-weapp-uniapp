@@ -1,17 +1,17 @@
 {
-  "name": "mp-vant-weapp-uniapp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
-  "dependencies": {
-    "@vant/icons": "^1.4.0",
-    "dayjs": "^1.10.6",
-    "prettier": "^2.1.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "MIT"
+	"name": "mp-vant-weapp-uniapp",
+	"version": "1.0.0",
+	"description": "",
+	"main": "main.js",
+	"dependencies": { 
+		"@vant/icons": "^1.4.0",
+		"dayjs": "^1.10.6",
+		"prettier": "^2.1.0"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "MIT"
 }

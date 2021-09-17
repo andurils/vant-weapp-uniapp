@@ -6,7 +6,7 @@
 
  		<view class="mobile-nav" v-for="(group, index) in list" :key="index">
  			<view class="mobile-nav__title">{{ group.groupName }}({{ group.list.length }})</view>
- 			<van-cell v-for="(item, key) in group.list" :key="key" is-link :url="'/pages' + item.path + item.path"
+ 			<van-cell v-for="(item, key) in group.list" :key="key" is-link :url="'/pagesA' + item.path + item.path"
  				:title="item.title" :border="false" custom-class="cus-root"></van-cell>
  		</view>
  		<view class="clear"></view>
@@ -19,7 +19,7 @@
 		内置样式 -->
 
  <script>
- 	import list from '../../config'; 
+ 	import list from '@/common/tools.js'; 
  	export default {
  		data() {
  			return {

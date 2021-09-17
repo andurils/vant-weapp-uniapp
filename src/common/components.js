@@ -9,6 +9,11 @@ export default [{
 				path: '/cell',
 				title: 'Cell 单元格'
 			},
+			
+			{
+				path: '/config-provider',
+				title: 'ConfigProvider 全局配置'
+			},
 			{
 				path: '/icon',
 				title: 'Icon 图标'

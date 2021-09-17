@@ -38,6 +38,14 @@
 			}
 		},
 		{
+			"path": "pages/config-provider/config-provider",
+			"style": {
+				"navigationBarTitleText": "ConfigProvider 全局配置",
+				"navigationStyle": "default"
+			}
+
+		},
+		{
 			"path": "pages/icon/icon",
 			"style": {
 				"navigationBarTitleText": "Icon 图标",
@@ -391,11 +399,12 @@
 	"subPackages": [{
 		"root": "pagesA",
 		"pages": [{
-			"path": "index/index",
+			"path": "sytle/sytle",
 			"style": {
-				"navigationBarTitleText": "工具",
+				"navigationBarTitleText": "内置样式",
 				"navigationStyle": "default"
 			}
+
 		}]
 	}, {
 		"root": "pagesB",
@@ -478,7 +487,8 @@
 			"van-sidebar-item": "/wxcomponents/vant/sidebar-item/index",
 			"van-calendar": "/wxcomponents/vant/calendar/index",
 			"van-share-sheet": "/wxcomponents/vant/share-sheet/index",
-			"van-empty": "/wxcomponents/vant/empty/index"
+			"van-empty": "/wxcomponents/vant/empty/index",
+			"van-config-provider": "/wxcomponents/vant/config-provider/index"
 		}
 	},
 	"usingComponts": true,
